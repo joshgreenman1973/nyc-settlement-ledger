@@ -1,0 +1,11 @@
+{
+  "source_dataset": "ex6k-ym48",
+  "source_url": "https://data.cityofnewyork.us/resource/ex6k-ym48",
+  "fetched_at": "2026-04-18T02:14:51.956Z",
+  "row_count": 63918,
+  "fiscal_year_range": [
+    2016,
+    2023
+  ],
+  "total_settled_usd": 4997471954.629997
+}

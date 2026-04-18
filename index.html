@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NYC Settlement Ledger — what New York City pays to settle claims</title>
+<meta name="description" content="A browsable archive of every settled claim against the City of New York — every police-misconduct payout, Rikers death case, sidewalk injury, and school settlement, with amounts, agencies, and years.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Instrument+Sans:wght@400..700&family=JetBrains+Mono:wght@400..600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:    #efe9dc;
+    --paper-2:  #e5dece;
+    --card:     #f7f2e6;
+    --ink:      #171411;
+    --ink-2:    #4a3f31;
+    --ink-3:    #8a7d6a;
+    --ink-4:    #b8ab93;
+    --rule:     #c9bda4;
+    --rule-2:   #a89c84;
+    --accent:   #8c2418;   /* oxblood — for payout emphasis */
+    --accent-2: #c26a5a;
+    --ok:       #4a6b3e;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Instrument Sans", system-ui, sans-serif;
+    font-size: 15px; line-height: 1.55;
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    background-image: radial-gradient(circle at 1px 1px, rgba(23,20,17,0.04) 1px, transparent 0);
+    background-size: 4px 4px;
+  }
+  ::selection { background: var(--accent); color: var(--paper); }
+  a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { color: var(--ink); }
+
+  /* ==== Masthead ==== */
+  header.masthead {
+    max-width: 1240px; margin: 0 auto;
+    padding: 40px 32px 16px;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+  }
+  h1.title {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 144, "SOFT" 30, "wght" 360;
+    font-size: clamp(44px, 7vw, 96px);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    margin: 0 0 24px;
+  }
+  .dek {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 24, "SOFT" 70, "wght" 360;
+    font-style: italic;
+    font-size: clamp(17px, 1.8vw, 22px);
+    color: var(--ink-2);
+    max-width: 64ch;
+    line-height: 1.4;
+    margin: 0 0 16px;
+  }
+  .currency-note {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: 0.05em;
+    color: var(--ink-3);
+    background: var(--paper-2);
+    border-left: 2px solid var(--accent);
+    padding: 8px 12px;
+    display: inline-block;
+    margin: 0 0 24px;
+  }
+  .currency-note strong { color: var(--ink); font-weight: 600; }
+  .coverage {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    color: var(--ink-3);
+    border-top: 1px solid var(--rule);
+    padding-top: 14px;
+    display: flex; flex-wrap: wrap; gap: 20px;
+  }
+  .coverage strong { color: var(--ink); font-weight: 600; }
+
+  /* ==== Big topline ==== */
+  .topline {
+    max-width: 1240px; margin: 0 auto;
+    padding: 32px; background: var(--card);
+    border: 1px solid var(--rule);
+    margin-bottom: 40px;
+  }
+  .topline-figure {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 144, "SOFT" 10, "wght" 400;
+    font-size: clamp(64px, 12vw, 148px);
+    line-height: 0.9;
+    color: var(--accent);
+    letter-spacing: -0.03em;
+  }
+  .topline-caption {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 18, "SOFT" 60, "wght" 380;
+    font-style: italic;
+    font-size: clamp(18px, 2vw, 24px);
+    color: var(--ink-2);
+    max-width: 48ch;
+    margin-top: 16px;
+  }
+
+  main { max-width: 1240px; margin: 0 auto; padding: 0 32px 80px; }
+
+  /* ==== Section blocks ==== */
+  section { margin-bottom: 64px; }
+  section > h2 {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 48, "SOFT" 40, "wght" 420;
+    font-size: 28px;
+    letter-spacing: -0.01em;
+    margin: 0 0 6px;
+  }
+  section > .intro {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 18, "SOFT" 60, "wght" 360;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-2);
+    max-width: 62ch;
+    margin: 0 0 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* ==== Agency roll-up ==== */
+  .agency-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 2px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .agency-card {
+    background: var(--card);
+    padding: 22px 20px 18px;
+    display: flex; flex-direction: column;
+    position: relative;
+  }
+  .agency-card .count {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 8px;
+  }
+  .agency-card .amount {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 48, "SOFT" 20, "wght" 440;
+    font-size: 32px; line-height: 1;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+  .agency-card .name {
+    font-family: "Instrument Sans", system-ui, sans-serif;
+    font-size: 14px; font-weight: 500;
+    color: var(--ink);
+    margin-top: 10px;
+    line-height: 1.3;
+  }
+  .agency-card .bar {
+    margin-top: 14px; height: 3px; background: var(--paper-2);
+    position: relative; overflow: hidden;
+  }
+  .agency-card .bar::after {
+    content: ''; position: absolute; inset: 0;
+    background: var(--accent);
+    transform-origin: left; transform: scaleX(var(--share, 0));
+  }
+
+  /* ==== Year chart (stacked bars) ==== */
+  .year-chart {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    padding: 24px 28px;
+  }
+  .year-chart .svg-wrap { width: 100%; overflow-x: auto; }
+  .year-chart svg { display: block; width: 100%; min-width: 600px; height: 360px; }
+  .year-chart .axis text {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; fill: var(--ink-3);
+  }
+  .year-chart .axis line, .year-chart .axis path { stroke: var(--rule); }
+  .year-chart .grid line { stroke: var(--rule); stroke-dasharray: 2 3; }
+  .year-chart-legend {
+    display: flex; flex-wrap: wrap; gap: 14px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px;
+    color: var(--ink-2);
+    margin-top: 18px;
+  }
+  .year-chart-legend span {
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .year-chart-legend span::before {
+    content: ''; width: 10px; height: 10px; background: var(--sw);
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+
+  /* ==== Top-settlements list ==== */
+  .top-list {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    padding: 6px 0;
+  }
+  .top-row {
+    display: grid;
+    grid-template-columns: 40px minmax(120px,160px) 1fr 120px;
+    gap: 18px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .top-row:last-child { border-bottom: 0; }
+  .top-row .rank {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; color: var(--ink-3);
+    font-variant-numeric: tabular-nums;
+  }
+  .top-row .amount {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 32, "SOFT" 20, "wght" 440;
+    font-size: 22px;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .top-row .desc {
+    font-size: 14px; color: var(--ink-2);
+  }
+  .top-row .desc strong { color: var(--ink); font-weight: 500; }
+  .top-row .meta {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; color: var(--ink-3);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  @media (max-width: 720px) {
+    .top-row { grid-template-columns: 1fr; gap: 4px; padding: 14px 18px; }
+    .top-row .meta { text-align: left; }
+  }
+
+  /* ==== Browse panel ==== */
+  .browse-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+    padding: 20px 24px;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    margin-bottom: 2px;
+  }
+  .ctrl label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-3);
+    display: block; margin-bottom: 6px;
+  }
+  .ctrl select, .ctrl input {
+    width: 100%;
+    font-family: "Instrument Sans", system-ui, sans-serif;
+    font-size: 13px;
+    padding: 7px 8px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    color: var(--ink);
+  }
+  .ctrl select:focus, .ctrl input:focus { outline: 1px solid var(--accent); border-color: var(--accent); }
+
+  .browse-summary {
+    padding: 14px 24px;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-top: 0;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: 0.04em;
+    color: var(--ink-2);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  }
+  .browse-summary b { color: var(--ink); font-weight: 600; }
+  .browse-summary .big { color: var(--accent); font-weight: 600; }
+
+  table.browse {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-top: 0;
+    font-size: 13px;
+  }
+  table.browse th {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-3);
+    text-align: left;
+    padding: 14px 14px 10px;
+    border-bottom: 1px solid var(--rule-2);
+  }
+  table.browse td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  table.browse tbody tr:hover { background: var(--paper-2); }
+  table.browse .amount-cell {
+    font-family: "JetBrains Mono", monospace;
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+    font-weight: 600;
+    text-align: right;
+    white-space: nowrap;
+  }
+  table.browse .mono {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    color: var(--ink-3);
+  }
+  .pagination {
+    padding: 16px 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    color: var(--ink-3);
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-top: 0;
+  }
+  .pagination button {
+    font-family: inherit; font-size: 11px;
+    padding: 6px 14px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .pagination button:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+  .pagination button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* ==== Methodology ==== */
+  .methodology {
+    background: var(--card);
+    border-left: 3px solid var(--accent);
+    padding: 24px 28px;
+    font-size: 14px;
+    color: var(--ink-2);
+  }
+  .methodology h3 {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 32, "SOFT" 30, "wght" 420;
+    font-size: 19px;
+    color: var(--ink);
+    margin: 0 0 12px;
+  }
+  .methodology p { margin: 0 0 10px; }
+  .methodology code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    background: var(--paper-2);
+    padding: 1px 6px;
+    border-radius: 2px;
+    color: var(--ink);
+  }
+
+  footer {
+    max-width: 1240px; margin: 0 auto;
+    padding: 20px 32px 40px;
+    border-top: 1px solid var(--rule);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    color: var(--ink-3);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  }
+
+  .loading {
+    padding: 60px 20px; text-align: center;
+    font-family: "Fraunces", serif; font-style: italic;
+    color: var(--ink-3);
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="eyebrow">New York City · Accountability Ledger</div>
+  <h1 class="title">What New York <em>actually</em> pays to settle claims</h1>
+  <p class="dek">
+    Every time the city pays someone to go away — a police-misconduct plaintiff, a Rikers death, a pothole injury, a wrongful conviction — it runs through the Comptroller. This is that ledger, in public view.
+  </p>
+  <p class="currency-note" id="currency-note"></p>
+  <div class="coverage" id="coverage">loading…</div>
+</header>
+
+<section class="topline">
+  <div class="topline-figure" id="topline-figure">—</div>
+  <p class="topline-caption" id="topline-caption">
+    paid out by New York City to settle legal claims <span id="topline-years"></span>.
+  </p>
+</section>
+
+<main>
+
+<section>
+  <h2>By agency</h2>
+  <p class="intro">
+    Which parts of city government cost the most to defend. Amounts are cumulative settled payouts across all fiscal years in the dataset.
+  </p>
+  <div class="agency-grid" id="agency-grid"><div class="loading">loading…</div></div>
+</section>
+
+<section>
+  <h2>By fiscal year</h2>
+  <p class="intro">
+    Annual settled payouts by the five top-paying agencies. Bars stack; the rest fall into “all other.”
+  </p>
+  <div class="year-chart">
+    <div class="svg-wrap"><svg id="year-chart-svg" viewBox="0 0 1200 360" preserveAspectRatio="none"></svg></div>
+    <div class="year-chart-legend" id="year-chart-legend"></div>
+  </div>
+</section>
+
+<section>
+  <h2>The biggest single settlements</h2>
+  <p class="intro">
+    Top 25 individual payouts on record. Wrongful convictions, serious injuries, and major medical-malpractice cases dominate.
+  </p>
+  <div class="top-list" id="top-list"><div class="loading">loading…</div></div>
+</section>
+
+<section>
+  <h2>Browse the ledger</h2>
+  <p class="intro">
+    Filter all settled claims by fiscal year, agency, claim type, borough, or minimum amount. Defaults to the most expensive first.
+  </p>
+
+  <div class="browse-controls">
+    <div class="ctrl">
+      <label for="f-fy">Fiscal year</label>
+      <select id="f-fy"><option value="">All</option></select>
+    </div>
+    <div class="ctrl">
+      <label for="f-agency">Agency</label>
+      <select id="f-agency"><option value="">All</option></select>
+    </div>
+    <div class="ctrl">
+      <label for="f-type">Claim type</label>
+      <select id="f-type"><option value="">All</option></select>
+    </div>
+    <div class="ctrl">
+      <label for="f-borough">Borough</label>
+      <select id="f-borough"><option value="">All</option></select>
+    </div>
+    <div class="ctrl">
+      <label for="f-min">Minimum amount</label>
+      <select id="f-min">
+        <option value="0">Any</option>
+        <option value="10000">$10,000+</option>
+        <option value="100000">$100,000+</option>
+        <option value="1000000">$1 million+</option>
+        <option value="5000000">$5 million+</option>
+      </select>
+    </div>
+    <div class="ctrl">
+      <label for="f-sort">Sort by</label>
+      <select id="f-sort">
+        <option value="amount_desc">Largest payout</option>
+        <option value="disposed_desc">Most recently settled</option>
+        <option value="occurred_asc">Oldest incident</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="browse-summary" id="browse-summary">
+    Loading full dataset…
+  </div>
+
+  <table class="browse" id="browse-table" style="display:none">
+    <thead>
+      <tr>
+        <th>FY</th>
+        <th>Agency</th>
+        <th>Claim type</th>
+        <th>Borough</th>
+        <th>Incident</th>
+        <th>Settled</th>
+        <th style="text-align:right">Amount</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <div class="pagination" id="pagination" style="display:none"></div>
+</section>
+
+<section>
+  <h2>Methodology</h2>
+  <p class="intro">
+    Everything here comes directly from public data. No estimates, no adjustments.
+  </p>
+  <div class="methodology">
+    <h3>Data source</h3>
+    <p>
+      All figures are drawn from NYC Open Data dataset <code>ex6k-ym48</code> — <a href="https://data.cityofnewyork.us/City-Government/Claims-Report-Underlying-Settlements-and-Claims-Fi/ex6k-ym48" target="_blank">Claims Report — Underlying Settlements and Claims Filed Data</a> — published by the New York City Comptroller’s Office. The dataset is refreshed roughly annually, with each Comptroller report covering the prior fiscal year.
+    </p>
+    <h3>Scope</h3>
+    <p>
+      This page shows only claims with <code>claim_action = SETTLED</code> and <code>disposition_amount &gt; 0</code>. It does not include claims still pending, claims dismissed without payment, or judgments entered against the city after trial. Coverage spans fiscal years <span id="meta-fy-range">—</span>.
+    </p>
+    <h3>Normalization</h3>
+    <p>
+      The source data mixes case conventions and abbreviation styles (for example, “Police Department” and “POLICE DEPARTMENT” appear as separate agency values). The fetch script collapses these into single buckets and rolls fine-grained claim type labels into broader categories. Original values are retained in <code>agency_raw</code> and <code>type_raw</code> fields in the downloaded JSON.
+    </p>
+    <h3>What “settled” means</h3>
+    <p>
+      A settlement is the city paying to resolve a claim. It is not an admission of liability or wrongdoing by any party. In some cases the city settles because it is cheaper than litigating; in others, it settles because the claim is meritorious.
+    </p>
+    <h3>Refresh</h3>
+    <p>
+      Run <code>node fetch.mjs</code> in the project folder to pull the latest dataset. Last refreshed: <span id="meta-refreshed">—</span>.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div>
+    Source: NYC Comptroller via NYC Open Data · fetched <span id="footer-date">—</span>
+  </div>
+  <div>
+    <a href="https://github.com/joshgreenman1973/nyc-settlement-ledger" target="_blank">Source on GitHub</a>
+  </div>
+</footer>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const fmt = (n) => '$' + Math.round(n).toLocaleString('en-US');
+const fmtAbbrev = (n) => {
+  if (n >= 1e9) return '$' + (n/1e9).toFixed(2) + 'B';
+  if (n >= 1e6) return '$' + (n/1e6).toFixed(1) + 'M';
+  if (n >= 1e3) return '$' + Math.round(n/1e3) + 'K';
+  return fmt(n);
+};
+const escHtml = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+const PALETTE = ['#8c2418','#c26a5a','#4a6b3e','#a88440','#4a4137','#8a7d6a'];
+
+let SUMMARY = null, SETTLEMENTS = null, META = null;
+
+async function loadEverything() {
+  // Summary first — small, instant render.
+  [SUMMARY, META] = await Promise.all([
+    fetch('data/summary.json').then(r => r.json()),
+    fetch('data/meta.json').then(r => r.json()),
+  ]);
+  renderSummary();
+
+  // Full dataset in the background — larger, for filter/browse.
+  SETTLEMENTS = await fetch('data/settlements.json').then(r => r.json());
+  wireBrowser();
+}
+
+function renderSummary() {
+  const fys = SUMMARY.fiscal_years;
+  const yearSpan = `fiscal years ${fys[0]}–${fys[fys.length-1]}`;
+
+  // Coverage bar
+  $('coverage').innerHTML = `
+    <span><strong>${SUMMARY.totals.rows.toLocaleString()}</strong> settled claims</span>
+    <span><strong>${fmtAbbrev(SUMMARY.totals.amount)}</strong> paid out</span>
+    <span><strong>${yearSpan}</strong></span>
+    <span>data source: <strong>NYC Comptroller</strong></span>
+  `;
+
+  // Currency note
+  $('currency-note').innerHTML = `Current through <strong>fiscal year ${fys[fys.length-1]}</strong> — the latest Annual Claims Report from the Comptroller. Updates automatically when NYC Open Data receives the next year.`;
+
+  // Big number
+  $('topline-figure').textContent = fmtAbbrev(SUMMARY.totals.amount);
+  $('topline-years').textContent = `across ${yearSpan.replace('fiscal years ', 'FY')}`;
+
+  // Agency grid
+  const total = SUMMARY.totals.amount;
+  const agencyEntries = Object.entries(SUMMARY.agencies).slice(0, 12);
+  $('agency-grid').innerHTML = agencyEntries.map(([name, v]) => {
+    const share = (v.total / agencyEntries[0][1].total).toFixed(3);
+    return `
+      <div class="agency-card">
+        <div class="count">${v.count.toLocaleString()} settlements · ${(v.total/total*100).toFixed(1)}% of total</div>
+        <div class="amount">${fmtAbbrev(v.total)}</div>
+        <div class="name">${escHtml(name)}</div>
+        <div class="bar" style="--share: ${share}"></div>
+      </div>
+    `;
+  }).join('');
+
+  // Year chart (stacked bar)
+  drawYearChart();
+
+  // Top 25
+  $('top-list').innerHTML = SUMMARY.top_100.slice(0, 25).map((r, i) => `
+    <div class="top-row">
+      <div class="rank">${String(i+1).padStart(2,'0')}</div>
+      <div class="amount">${fmtAbbrev(r.amount)}</div>
+      <div class="desc"><strong>${escHtml(r.agency)}</strong> · ${escHtml(r.type)} ${r.borough ? '· ' + escHtml(r.borough) : ''}</div>
+      <div class="meta">FY${r.fy} · ${r.disposed || ''}</div>
+    </div>
+  `).join('');
+
+  // Methodology placeholders
+  $('meta-fy-range').textContent = yearSpan;
+  $('meta-refreshed').textContent = META.fetched_at.slice(0, 10);
+  $('footer-date').textContent = META.fetched_at.slice(0, 10);
+}
+
+function drawYearChart() {
+  const svg = $('year-chart-svg');
+  const W = 1200, H = 360, PAD = { l: 70, r: 20, t: 20, b: 40 };
+  const years = SUMMARY.fiscal_years;
+  const topAgencies = Object.keys(SUMMARY.agencies).slice(0, 5);
+
+  // Build year × agency matrix, lumping the rest into "All other"
+  const series = [...topAgencies, 'All other agencies'];
+  const yearTotals = years.map(fy => {
+    const data = SUMMARY.by_fy_agency[fy] || {};
+    const row = { fy, stack: {} };
+    let other = 0;
+    for (const [a, v] of Object.entries(data)) {
+      if (topAgencies.includes(a)) row.stack[a] = v.total;
+      else other += v.total;
+    }
+    row.stack['All other agencies'] = other;
+    row.total = Object.values(row.stack).reduce((s, v) => s + v, 0);
+    return row;
+  });
+
+  const maxTotal = Math.max(...yearTotals.map(y => y.total));
+  const xScale = (i) => PAD.l + (W - PAD.l - PAD.r) * (i + 0.5) / years.length;
+  const barW = (W - PAD.l - PAD.r) / years.length * 0.68;
+  const yScale = (v) => H - PAD.b - (v / maxTotal) * (H - PAD.t - PAD.b);
+
+  let html = '';
+  // Gridlines
+  html += '<g class="grid">';
+  const gridSteps = 5;
+  for (let i = 0; i <= gridSteps; i++) {
+    const v = maxTotal * i / gridSteps;
+    const y = yScale(v);
+    html += `<line x1="${PAD.l}" x2="${W - PAD.r}" y1="${y}" y2="${y}"/>`;
+    html += `<text x="${PAD.l - 10}" y="${y + 3}" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="10" fill="#8a7d6a">${fmtAbbrev(v)}</text>`;
+  }
+  html += '</g>';
+  // Stacked bars
+  for (let i = 0; i < yearTotals.length; i++) {
+    const row = yearTotals[i];
+    const cx = xScale(i);
+    let yCursor = H - PAD.b;
+    for (let si = 0; si < series.length; si++) {
+      const label = series[si];
+      const v = row.stack[label] || 0;
+      if (v <= 0) continue;
+      const h = (v / maxTotal) * (H - PAD.t - PAD.b);
+      html += `<rect x="${cx - barW/2}" y="${yCursor - h}" width="${barW}" height="${h}" fill="${PALETTE[si]}"><title>FY${row.fy} · ${label}: ${fmt(v)}</title></rect>`;
+      yCursor -= h;
+    }
+    // Year label
+    html += `<text x="${cx}" y="${H - PAD.b + 18}" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#171411">FY${row.fy}</text>`;
+    // Total above
+    html += `<text x="${cx}" y="${yScale(row.total) - 6}" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#4a3f31">${fmtAbbrev(row.total)}</text>`;
+  }
+  svg.innerHTML = html;
+
+  // Legend
+  $('year-chart-legend').innerHTML = series.map((label, i) =>
+    `<span style="--sw:${PALETTE[i]}">${escHtml(label)}</span>`
+  ).join('');
+}
+
+// ==== Browse ====
+
+const PAGE_SIZE = 50;
+let state = { fy:'', agency:'', type:'', borough:'', min:0, sort:'amount_desc', page:1 };
+
+function wireBrowser() {
+  // Populate filter options from the loaded data
+  const fys = [...new Set(SETTLEMENTS.map(r => r.fy).filter(Boolean))].sort((a,b) => b-a);
+  const agencies = [...new Set(SETTLEMENTS.map(r => r.agency).filter(Boolean))].sort();
+  const types = [...new Set(SETTLEMENTS.map(r => r.type).filter(Boolean))].sort();
+  const boroughs = [...new Set(SETTLEMENTS.map(r => r.borough).filter(Boolean))].sort();
+
+  const optize = (el, items) => { for (const x of items) el.insertAdjacentHTML('beforeend', `<option value="${escHtml(x)}">${escHtml(x)}</option>`); };
+  optize($('f-fy'), fys);
+  optize($('f-agency'), agencies);
+  optize($('f-type'), types);
+  optize($('f-borough'), boroughs);
+
+  for (const id of ['f-fy','f-agency','f-type','f-borough','f-min','f-sort']) {
+    $(id).addEventListener('change', () => {
+      state.fy = $('f-fy').value;
+      state.agency = $('f-agency').value;
+      state.type = $('f-type').value;
+      state.borough = $('f-borough').value;
+      state.min = parseFloat($('f-min').value) || 0;
+      state.sort = $('f-sort').value;
+      state.page = 1;
+      renderBrowse();
+    });
+  }
+
+  $('browse-table').style.display = '';
+  renderBrowse();
+}
+
+function filterRows() {
+  let rows = SETTLEMENTS;
+  if (state.fy) rows = rows.filter(r => String(r.fy) === state.fy);
+  if (state.agency) rows = rows.filter(r => r.agency === state.agency);
+  if (state.type) rows = rows.filter(r => r.type === state.type);
+  if (state.borough) rows = rows.filter(r => r.borough === state.borough);
+  if (state.min) rows = rows.filter(r => r.amount >= state.min);
+  const sorters = {
+    amount_desc: (a,b) => b.amount - a.amount,
+    disposed_desc: (a,b) => (b.disposed || '').localeCompare(a.disposed || ''),
+    occurred_asc: (a,b) => (a.occurred || '').localeCompare(b.occurred || ''),
+  };
+  rows = [...rows].sort(sorters[state.sort]);
+  return rows;
+}
+
+function renderBrowse() {
+  const rows = filterRows();
+  const total = rows.reduce((s, r) => s + r.amount, 0);
+  const pages = Math.max(1, Math.ceil(rows.length / PAGE_SIZE));
+  state.page = Math.min(state.page, pages);
+  const slice = rows.slice((state.page - 1) * PAGE_SIZE, state.page * PAGE_SIZE);
+
+  $('browse-summary').innerHTML = `
+    <span><b>${rows.length.toLocaleString()}</b> matching settlements · total <span class="big">${fmtAbbrev(total)}</span></span>
+    <span>showing ${(state.page-1)*PAGE_SIZE+1}–${Math.min(state.page*PAGE_SIZE, rows.length)} of ${rows.length.toLocaleString()}</span>
+  `;
+
+  const tbody = document.querySelector('#browse-table tbody');
+  tbody.innerHTML = slice.map(r => `
+    <tr>
+      <td class="mono">FY${r.fy || '—'}</td>
+      <td>${escHtml(r.agency)}</td>
+      <td>${escHtml(r.type)}</td>
+      <td class="mono">${escHtml(r.borough || '—')}</td>
+      <td class="mono">${escHtml(r.occurred || '—')}</td>
+      <td class="mono">${escHtml(r.disposed || '—')}</td>
+      <td class="amount-cell">${fmt(r.amount)}</td>
+    </tr>
+  `).join('');
+
+  $('pagination').style.display = '';
+  $('pagination').innerHTML = `
+    <button id="prev" ${state.page === 1 ? 'disabled' : ''}>← prev</button>
+    <span>page ${state.page} of ${pages}</span>
+    <button id="next" ${state.page === pages ? 'disabled' : ''}>next →</button>
+  `;
+  $('prev').onclick = () => { state.page--; renderBrowse(); document.querySelector('.browse-controls').scrollIntoView({ behavior: 'smooth' }); };
+  $('next').onclick = () => { state.page++; renderBrowse(); document.querySelector('.browse-controls').scrollIntoView({ behavior: 'smooth' }); };
+}
+
+loadEverything().catch(err => {
+  document.querySelector('main').innerHTML = `<div class="loading">Failed to load data — ${escHtml(err.message)}</div>`;
+});
+</script>
+</body>
+</html>
