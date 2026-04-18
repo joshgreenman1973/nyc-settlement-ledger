@@ -2651,5 +2651,316 @@
       "type": "Motor vehicle",
       "type_raw": "AUTOMOBILE ACCIDENT (PI)"
     }
+  ],
+  "budget": [
+    {
+      "fy": 2017,
+      "adopted": 1421524644,
+      "modified": 1383095798,
+      "by_agency": {
+        "DEPARTMENT OF EDUCATION": {
+          "adopted": 196206,
+          "modified": 23592480
+        },
+        "OFFICE OF THE COMPTROLLER": {
+          "adopted": 1550000,
+          "modified": 946000
+        },
+        "DEPARTMENT OF CITYWIDE ADMIN SERVICE": {
+          "adopted": 0,
+          "modified": 8760350
+        },
+        "MISCELLANEOUS": {
+          "adopted": 1419778438,
+          "modified": 1349778438
+        },
+        "CITY UNIVERSITY OF NEW YORK": {
+          "adopted": 0,
+          "modified": 18530
+        }
+      }
+    },
+    {
+      "fy": 2018,
+      "adopted": 2049334356,
+      "modified": 2132158237,
+      "by_agency": {
+        "OFFICE OF THE COMPTROLLER": {
+          "adopted": 2325000,
+          "modified": 965000
+        },
+        "DEPARTMENT OF EDUCATION": {
+          "adopted": 17841699,
+          "modified": 17841699
+        },
+        "DEPARTMENT OF CITYWIDE ADMIN SERVICE": {
+          "adopted": 0,
+          "modified": 4154979
+        },
+        "NYC TAXI AND LIMOUSINE COMM": {
+          "adopted": 0,
+          "modified": 500
+        },
+        "DEPARTMENT OF HOMELESS SERVICES": {
+          "adopted": 0,
+          "modified": 7000
+        },
+        "POLICE DEPARTMENT": {
+          "adopted": 0,
+          "modified": 756
+        },
+        "FIRE DEPARTMENT": {
+          "adopted": 0,
+          "modified": 20646
+        },
+        "MISCELLANEOUS": {
+          "adopted": 2029167657,
+          "modified": 2109167657
+        }
+      }
+    },
+    {
+      "fy": 2019,
+      "adopted": 2095258131,
+      "modified": 2114695205,
+      "by_agency": {
+        "CITY UNIVERSITY OF NEW YORK": {
+          "adopted": 0,
+          "modified": 210713
+        },
+        "FIRE DEPARTMENT": {
+          "adopted": 0,
+          "modified": 50370
+        },
+        "MISCELLANEOUS": {
+          "adopted": 2074767657,
+          "modified": 2094767657
+        },
+        "DEPARTMENT OF EDUCATION": {
+          "adopted": 18735474,
+          "modified": 18735474
+        },
+        "DEPARTMENT OF HOMELESS SERVICES": {
+          "adopted": 0,
+          "modified": 1950
+        },
+        "OFFICE OF THE COMPTROLLER": {
+          "adopted": 1755000,
+          "modified": 880000
+        },
+        "DEPARTMENT OF TRANSPORTATION": {
+          "adopted": 0,
+          "modified": 49041
+        }
+      }
+    },
+    {
+      "fy": 2020,
+      "adopted": 2093016966,
+      "modified": 2092060535,
+      "by_agency": {
+        "DEPARTMENT OF EDUCATION": {
+          "adopted": 294309,
+          "modified": 294309
+        },
+        "MISCELLANEOUS": {
+          "adopted": 2090967657,
+          "modified": 2090967657
+        },
+        "FIRE DEPARTMENT": {
+          "adopted": 0,
+          "modified": 5400
+        },
+        "DEPARTMENT OF CITYWIDE ADMIN SERVICE": {
+          "adopted": 0,
+          "modified": 159143
+        },
+        "OFFICE OF THE COMPTROLLER": {
+          "adopted": 1755000,
+          "modified": 634026
+        }
+      }
+    },
+    {
+      "fy": 2021,
+      "adopted": 2137716966,
+      "modified": 2180173122,
+      "by_agency": {
+        "MISCELLANEOUS": {
+          "adopted": 2135667657,
+          "modified": 2176931657
+        },
+        "DEPARTMENT OF CITYWIDE ADMIN SERVICE": {
+          "adopted": 0,
+          "modified": 1108877
+        },
+        "OFFICE OF THE COMPTROLLER": {
+          "adopted": 1755000,
+          "modified": 1487800
+        },
+        "DEPARTMENT OF EDUCATION": {
+          "adopted": 294309,
+          "modified": 644309
+        },
+        "DEPARTMENT OF HEALTH AND MENTAL HYGIENE": {
+          "adopted": 0,
+          "modified": 479
+        }
+      }
+    },
+    {
+      "fy": 2022,
+      "adopted": 2183316966,
+      "modified": 2036598706,
+      "by_agency": {
+        "MISCELLANEOUS": {
+          "adopted": 2181267657,
+          "modified": 2036267657
+        },
+        "DEPARTMENT OF EDUCATION": {
+          "adopted": 294309,
+          "modified": 294309
+        },
+        "DEPARTMENT OF HEALTH AND MENTAL HYGIENE": {
+          "adopted": 0,
+          "modified": 31740
+        },
+        "OFFICE OF THE COMPTROLLER": {
+          "adopted": 1755000,
+          "modified": 5000
+        }
+      }
+    },
+    {
+      "fy": 2023,
+      "adopted": 4013916966,
+      "modified": 3984773875,
+      "by_agency": {
+        "ADMIN FOR CHILDREN'S SERVICES": {
+          "adopted": 0,
+          "modified": 14916000
+        },
+        "CITY UNIVERSITY OF NEW YORK": {
+          "adopted": 0,
+          "modified": 630
+        },
+        "MISCELLANEOUS": {
+          "adopted": 4011867657,
+          "modified": 3968867657
+        },
+        "POLICE DEPARTMENT": {
+          "adopted": 0,
+          "modified": 300000
+        },
+        "OFFICE OF THE COMPTROLLER": {
+          "adopted": 1755000,
+          "modified": 395279
+        },
+        "DEPARTMENT OF EDUCATION": {
+          "adopted": 294309,
+          "modified": 294309
+        }
+      }
+    },
+    {
+      "fy": 2024,
+      "adopted": 3599616966,
+      "modified": 3634188653,
+      "by_agency": {
+        "OFFICE OF THE COMPTROLLER": {
+          "adopted": 1755000,
+          "modified": 585518
+        },
+        "DEPARTMENT OF TRANSPORTATION": {
+          "adopted": 0,
+          "modified": 3000
+        },
+        "ADMIN FOR CHILDREN'S SERVICES": {
+          "adopted": 0,
+          "modified": 35738169
+        },
+        "MISCELLANEOUS": {
+          "adopted": 3597567657,
+          "modified": 3597567657
+        },
+        "DEPARTMENT OF EDUCATION": {
+          "adopted": 294309,
+          "modified": 294309
+        }
+      }
+    },
+    {
+      "fy": 2025,
+      "adopted": 3495816966,
+      "modified": 3629464406,
+      "by_agency": {
+        "DEPARTMENT OF TRANSPORTATION": {
+          "adopted": 0,
+          "modified": 288118
+        },
+        "OFFICE OF THE COMPTROLLER": {
+          "adopted": 1755000,
+          "modified": 120744
+        },
+        "MISCELLANEOUS": {
+          "adopted": 3493767657,
+          "modified": 3628761235
+        },
+        "DEPARTMENT OF EDUCATION": {
+          "adopted": 294309,
+          "modified": 294309
+        }
+      }
+    },
+    {
+      "fy": 2026,
+      "adopted": 2633616966,
+      "modified": 2876377565,
+      "by_agency": {
+        "DEPARTMENT OF EDUCATION": {
+          "adopted": 294309,
+          "modified": 5806290
+        },
+        "MISCELLANEOUS": {
+          "adopted": 2631567657,
+          "modified": 2835667657
+        },
+        "DEPARTMENT OF HEALTH AND MENTAL HYGIENE": {
+          "adopted": 0,
+          "modified": 2500
+        },
+        "OFFICE OF THE COMPTROLLER": {
+          "adopted": 1755000,
+          "modified": 93618
+        },
+        "FIRE DEPARTMENT": {
+          "adopted": 0,
+          "modified": 34807500
+        }
+      }
+    },
+    {
+      "fy": 2027,
+      "adopted": 825528451,
+      "modified": 826806206,
+      "by_agency": {
+        "MISCELLANEOUS": {
+          "adopted": 823189219,
+          "modified": 823189219
+        },
+        "DEPARTMENT OF EDUCATION": {
+          "adopted": 1935430,
+          "modified": 3435430
+        },
+        "OFFICE OF THE COMPTROLLER": {
+          "adopted": 403802,
+          "modified": 168057
+        },
+        "POLICE DEPARTMENT": {
+          "adopted": 0,
+          "modified": 13500
+        }
+      }
+    }
   ]
 }

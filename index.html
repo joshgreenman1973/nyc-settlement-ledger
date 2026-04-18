@@ -433,6 +433,17 @@
 </section>
 
 <section>
+  <h2>Budget vs actual</h2>
+  <p class="intro">
+    The city <em>budgets</em> far more for judgments and claims than it actually pays out. This is the line item (<code style="font-family:JetBrains Mono,monospace;font-size:12px">JUDGEMENTS AND CLAIMS</code>) in the Expense Budget, next to what the Comptroller reports was actually settled. Budget figures extend out to fiscal years the Comptroller hasn't yet reported on.
+  </p>
+  <div class="year-chart">
+    <div class="svg-wrap"><svg id="budget-chart-svg" viewBox="0 0 1200 320" preserveAspectRatio="none"></svg></div>
+    <div class="year-chart-legend" id="budget-chart-legend"></div>
+  </div>
+</section>
+
+<section>
   <h2>The biggest single settlements</h2>
   <p class="intro">
     Top 25 individual payouts on record. Wrongful convictions, serious injuries, and major medical-malpractice cases dominate.
@@ -608,6 +619,8 @@ function renderSummary() {
 
   // Year chart (stacked bar)
   drawYearChart();
+  // Budget-vs-actual chart
+  if (SUMMARY.budget) drawBudgetChart();
 
   // Top 25
   $('top-list').innerHTML = SUMMARY.top_100.slice(0, 25).map((r, i) => `
@@ -686,6 +699,61 @@ function drawYearChart() {
   $('year-chart-legend').innerHTML = series.map((label, i) =>
     `<span style="--sw:${PALETTE[i]}">${escHtml(label)}</span>`
   ).join('');
+}
+
+function drawBudgetChart() {
+  const svg = $('budget-chart-svg');
+  const W = 1200, H = 320, PAD = { l: 70, r: 20, t: 20, b: 40 };
+  const budget = SUMMARY.budget; // [{fy, adopted, modified, by_agency}]
+  // Actual by FY (from settlements)
+  const actualsByFy = {};
+  for (const [fy, obj] of Object.entries(SUMMARY.by_fy_agency)) {
+    actualsByFy[fy] = Object.values(obj).reduce((s, v) => s + v.total, 0);
+  }
+  // Merge on a common axis
+  const allFys = [...new Set([...budget.map(b => b.fy), ...Object.keys(actualsByFy).map(Number)])].sort();
+  const maxVal = Math.max(
+    ...budget.map(b => b.modified),
+    ...Object.values(actualsByFy),
+  );
+  const x = (i) => PAD.l + (W - PAD.l - PAD.r) * (i + 0.5) / allFys.length;
+  const y = (v) => H - PAD.b - (v / maxVal) * (H - PAD.t - PAD.b);
+  const barW = (W - PAD.l - PAD.r) / allFys.length * 0.3;
+
+  let html = '';
+  html += '<g class="grid">';
+  for (let i = 0; i <= 5; i++) {
+    const v = maxVal * i / 5;
+    const yy = y(v);
+    html += `<line x1="${PAD.l}" x2="${W - PAD.r}" y1="${yy}" y2="${yy}"/>`;
+    html += `<text x="${PAD.l - 10}" y="${yy + 3}" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="10" fill="#8a7d6a">${fmtAbbrev(v)}</text>`;
+  }
+  html += '</g>';
+
+  for (let i = 0; i < allFys.length; i++) {
+    const fy = allFys[i];
+    const cx = x(i);
+    const budgetRow = budget.find(b => b.fy === fy);
+    const actual = actualsByFy[fy] || 0;
+    const budgeted = budgetRow ? budgetRow.modified : 0;
+    // Budget bar (muted)
+    if (budgeted) {
+      html += `<rect x="${cx - barW - 2}" y="${y(budgeted)}" width="${barW}" height="${H - PAD.b - y(budgeted)}" fill="#c9bda4"><title>FY${fy} budgeted: ${fmt(budgeted)}</title></rect>`;
+      html += `<text x="${cx - barW/2 - 2}" y="${y(budgeted) - 5}" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#8a7d6a">${fmtAbbrev(budgeted)}</text>`;
+    }
+    // Actual bar (oxblood)
+    if (actual) {
+      html += `<rect x="${cx + 2}" y="${y(actual)}" width="${barW}" height="${H - PAD.b - y(actual)}" fill="#8c2418"><title>FY${fy} actual settled: ${fmt(actual)}</title></rect>`;
+      html += `<text x="${cx + barW/2 + 2}" y="${y(actual) - 5}" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#4a3f31">${fmtAbbrev(actual)}</text>`;
+    }
+    // FY label
+    html += `<text x="${cx}" y="${H - PAD.b + 18}" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#171411">FY${fy}</text>`;
+  }
+  svg.innerHTML = html;
+  $('budget-chart-legend').innerHTML = `
+    <span style="--sw:#c9bda4">Budgeted (OMB Expense Budget)</span>
+    <span style="--sw:#8c2418">Actually settled (Comptroller Claims Report)</span>
+  `;
 }
 
 // ==== Browse ====

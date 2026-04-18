@@ -1,11 +1,26 @@
 {
-  "source_dataset": "ex6k-ym48",
-  "source_url": "https://data.cityofnewyork.us/resource/ex6k-ym48",
-  "fetched_at": "2026-04-18T02:14:51.956Z",
+  "sources": [
+    {
+      "id": "ex6k-ym48",
+      "url": "https://data.cityofnewyork.us/d/ex6k-ym48",
+      "description": "Comptroller — actual settled claims"
+    },
+    {
+      "id": "mwzb-yiwb",
+      "url": "https://data.cityofnewyork.us/d/mwzb-yiwb",
+      "description": "OMB — budgeted judgements & claims"
+    }
+  ],
+  "fetched_at": "2026-04-18T03:15:57.555Z",
   "row_count": 63918,
-  "fiscal_year_range": [
+  "actual_fy_range": [
     2016,
     2023
   ],
-  "total_settled_usd": 4997471954.629997
+  "budget_fy_range": [
+    2017,
+    2027
+  ],
+  "total_settled_usd": 4997471954.629997,
+  "total_budgeted_usd": 26890392308
 }

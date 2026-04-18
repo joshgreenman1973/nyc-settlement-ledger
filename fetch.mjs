@@ -16,6 +16,8 @@ const DIR = import.meta.dirname;
 const DATA = join(DIR, 'data');
 const DATASET = 'ex6k-ym48';
 const SOURCE = 'https://data.cityofnewyork.us/resource/' + DATASET + '.json';
+const BUDGET_DATASET = 'mwzb-yiwb'; // NYC Expense Budget — includes forward-year judgment & claim budgets
+const BUDGET_SOURCE = 'https://data.cityofnewyork.us/resource/' + BUDGET_DATASET + '.json';
 const PAGE = 50000;
 
 // Canonicalize agency names — Comptroller uses mixed case + abbreviations.
@@ -139,24 +141,56 @@ function summarize(rows) {
   };
 }
 
+async function fetchBudget() {
+  // Pull the "JUDGEMENTS AND CLAIMS" budget line across all fiscal years.
+  // This extends the ledger into FY2024-FY2027 (the Comptroller's actual-
+  // payout data only covers through FY2023).
+  const url = `${BUDGET_SOURCE}?$select=fiscal_year,agency_name,object_code_name,sum(adopted_budget_amount)+as+adopted,sum(current_modified_budget_amount)+as+modified&$where=object_code_name='JUDGEMENTS AND CLAIMS'&$group=fiscal_year,agency_name,object_code_name&$limit=5000`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Budget API: ${res.status}`);
+  const rows = await res.json();
+  const byFy = {};
+  for (const r of rows) {
+    const fy = parseInt(r.fiscal_year, 10);
+    if (!fy) continue;
+    (byFy[fy] ||= { fy, adopted: 0, modified: 0, by_agency: {} });
+    byFy[fy].adopted += parseFloat(r.adopted) || 0;
+    byFy[fy].modified += parseFloat(r.modified) || 0;
+    byFy[fy].by_agency[r.agency_name] = {
+      adopted: parseFloat(r.adopted) || 0,
+      modified: parseFloat(r.modified) || 0,
+    };
+  }
+  return Object.values(byFy).sort((a, b) => a.fy - b.fy);
+}
+
 async function main() {
   console.log('Fetching settled claims from NYC Open Data…');
   const raw = await fetchAll();
   console.log(`Normalizing ${raw.length.toLocaleString()} records…`);
   const rows = raw.map(extract);
+  console.log('Fetching budget line for "JUDGEMENTS AND CLAIMS"…');
+  const budget = await fetchBudget();
+  console.log(`  ${budget.length} fiscal years of budget data (FY${budget[0]?.fy}-FY${budget[budget.length-1]?.fy})`);
 
   writeFileSync(join(DATA, 'settlements.json'), JSON.stringify(rows));
-  writeFileSync(join(DATA, 'summary.json'), JSON.stringify(summarize(rows), null, 2));
+  const summary = summarize(rows);
+  summary.budget = budget;
+  writeFileSync(join(DATA, 'summary.json'), JSON.stringify(summary, null, 2));
   writeFileSync(join(DATA, 'meta.json'), JSON.stringify({
-    source_dataset: DATASET,
-    source_url: `https://data.cityofnewyork.us/resource/${DATASET}`,
+    sources: [
+      { id: DATASET, url: `https://data.cityofnewyork.us/d/${DATASET}`, description: 'Comptroller — actual settled claims' },
+      { id: BUDGET_DATASET, url: `https://data.cityofnewyork.us/d/${BUDGET_DATASET}`, description: 'OMB — budgeted judgements & claims' },
+    ],
     fetched_at: new Date().toISOString(),
     row_count: rows.length,
-    fiscal_year_range: [
+    actual_fy_range: [
       Math.min(...rows.map(r => r.fy).filter(Boolean)),
       Math.max(...rows.map(r => r.fy).filter(Boolean)),
     ],
+    budget_fy_range: [budget[0]?.fy, budget[budget.length-1]?.fy],
     total_settled_usd: rows.reduce((s, r) => s + r.amount, 0),
+    total_budgeted_usd: budget.reduce((s, b) => s + b.modified, 0),
   }, null, 2));
 
   console.log(`done — wrote ${rows.length.toLocaleString()} settlements.`);
