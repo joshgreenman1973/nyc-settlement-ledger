@@ -1,0 +1,37 @@
+name: Refresh settlement data
+
+on:
+  schedule:
+    # 06:00 UTC on the 1st of every month — the Comptroller's Annual Claims
+    # Report typically lands in late fall/winter, but Open Data can ingest
+    # updates any time, so check monthly.
+    - cron: '0 6 1 * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch latest settlements
+        run: node fetch.mjs
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- data/; then
+            echo "No data changes."
+            exit 0
+          fi
+          git add data/
+          git commit -m "Auto-refresh settlement data $(date -u +%Y-%m-%d)"
+          git push

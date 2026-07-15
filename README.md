@@ -40,4 +40,4 @@ python3 -m http.server   # or any static server — then open localhost:8000
 
 ## Refresh cadence
 
-No automatic cron. Run `node fetch.mjs` manually when the Comptroller publishes a new Annual Claims Report (typically late fall / early winter), or set up a GitHub Action on a monthly schedule.
+A GitHub Actions workflow (`.github/workflows/refresh.yml`) runs `fetch.mjs` on the 1st of every month and commits `data/*.json` if the Comptroller has published new records. Trigger it manually from the Actions tab (`workflow_dispatch`) to check immediately.
