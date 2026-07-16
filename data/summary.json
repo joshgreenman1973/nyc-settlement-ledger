@@ -279,11 +279,11 @@
       "count": 2,
       "total": 40000
     },
-    "Dept OF Parks - Capital": {
+    "BD. OF Corrections": {
       "count": 1,
       "total": 35000
     },
-    "BD. OF Corrections": {
+    "Dept OF Parks - Capital": {
       "count": 1,
       "total": 35000
     },
@@ -319,15 +319,15 @@
       "count": 1,
       "total": 13500
     },
+    "DOT - Bureau OF Marine/aviation": {
+      "count": 1,
+      "total": 10000
+    },
     "Dot-bur. OF Marine/aviation": {
       "count": 1,
       "total": 10000
     },
     "Sup. CT. 11th Jud. Dist. (queens)": {
-      "count": 1,
-      "total": 10000
-    },
-    "DOT - Bureau OF Marine/aviation": {
       "count": 1,
       "total": 10000
     },
@@ -618,217 +618,217 @@
   },
   "by_fy_agency": {
     "2016": {
-      "FDNY — Fire Department": {
-        "count": 473,
-        "total": 16294635.699999994
-      },
       "NYPD — New York City Police Department": {
         "count": 4076,
         "total": 272430847.3399999
-      },
-      "Dept OF Transportation": {
-        "count": 1111,
-        "total": 62274077.71999999
       },
       "Health & Hospital S Corporation": {
         "count": 340,
         "total": 98165776.67000002
       },
-      "Dept OF Parks & Recreation": {
-        "count": 334,
-        "total": 11046257.140000002
+      "Dept OF Transportation": {
+        "count": 1111,
+        "total": 62274077.71999999
       },
       "Dept OF Sanitation": {
         "count": 1147,
         "total": 35478085.42999999
       },
-      "Dept OF Education": {
-        "count": 586,
-        "total": 30494403.150000002
-      },
-      "NYC Transit Authority": {
-        "count": 5,
-        "total": 109500
-      },
       "Dept OF Correction": {
         "count": 809,
         "total": 30875011.209999997
       },
-      "Dept OF Environmental Protection": {
-        "count": 268,
-        "total": 4948754.459999999
+      "Dept OF Education": {
+        "count": 586,
+        "total": 30494403.150000002
       },
-      "City University (cuny)": {
-        "count": 5,
-        "total": 394000
+      "FDNY — Fire Department": {
+        "count": 473,
+        "total": 16294635.699999994
       },
-      "Unknown": {
-        "count": 56,
-        "total": 2740426.6999999993
-      },
-      "Taxi & Limousine Commission": {
-        "count": 10,
-        "total": 122145.71
-      },
-      "DOT - Bureau OF Marine/aviation": {
-        "count": 1,
-        "total": 10000
-      },
-      "Dept OF Homeless Services": {
-        "count": 35,
-        "total": 674714.1699999999
+      "Dept OF Parks & Recreation": {
+        "count": 334,
+        "total": 11046257.140000002
       },
       "HPD — Housing Preservation & Development": {
         "count": 20,
         "total": 8755841.56
       },
-      "DOT - Bureau OF Traffic": {
-        "count": 2,
-        "total": 1658000
-      },
-      "ACS — Administration for Children's Services": {
-        "count": 20,
-        "total": 434841.44999999995
-      },
-      "Dept OF Buildings": {
-        "count": 11,
-        "total": 2966513.99
-      },
-      "Dept OF Citywide Admin Services (dgs)": {
-        "count": 18,
-        "total": 717568.35
+      "Dept OF Environmental Protection": {
+        "count": 268,
+        "total": 4948754.459999999
       },
       "Dept OF Design AND Construction": {
         "count": 5,
         "total": 4532783.71
       },
-      "Comptroller": {
-        "count": 4,
-        "total": 157004
+      "Dept OF Buildings": {
+        "count": 11,
+        "total": 2966513.99
+      },
+      "Unknown": {
+        "count": 56,
+        "total": 2740426.6999999993
       },
       "Human Resources Administration (hra)": {
         "count": 26,
         "total": 1671130.89
       },
-      "NY Housing Authority": {
-        "count": 10,
-        "total": 272300
-      },
-      "Dept OF Cultural Affairs": {
-        "count": 1,
-        "total": 50000
-      },
-      "Dept OF Health AND Mental Hygiene": {
-        "count": 11,
-        "total": 121431.73999999999
-      },
-      "Civil Court": {
-        "count": 1,
-        "total": 2500
-      },
-      "Dept OF Mental Health": {
-        "count": 9,
-        "total": 86769.84
-      },
-      "LAW Department": {
-        "count": 3,
-        "total": 729815
-      },
-      "Office OF Chief Medical Examination": {
-        "count": 4,
-        "total": 22661.920000000002
-      },
-      "Dept OF Juvenile Justice": {
-        "count": 3,
-        "total": 105450
-      },
-      "City Sheriff": {
-        "count": 1,
-        "total": 150000
-      },
-      "Dept OF Finance": {
-        "count": 3,
-        "total": 205000
+      "DOT - Bureau OF Traffic": {
+        "count": 2,
+        "total": 1658000
       },
       "Dist. Atty. Kings": {
         "count": 3,
         "total": 751037
       },
-      "Dist. Atty. S.i.": {
-        "count": 2,
-        "total": 2349
+      "LAW Department": {
+        "count": 3,
+        "total": 729815
       },
-      "Brooklyn Public Library": {
-        "count": 1,
-        "total": 3500
+      "Dept OF Citywide Admin Services (dgs)": {
+        "count": 18,
+        "total": 717568.35
       },
-      "Board OF Elections": {
-        "count": 2,
-        "total": 44000
-      },
-      "Office Municipal Labor Relations": {
-        "count": 1,
-        "total": 1450
-      },
-      "BD. OF Corrections": {
-        "count": 1,
-        "total": 35000
-      },
-      "Dept OF Consumer Affairs": {
-        "count": 2,
-        "total": 8500
-      },
-      "Criminal Court": {
-        "count": 1,
-        "total": 20000
-      },
-      "NY Public Library (man)": {
-        "count": 1,
-        "total": 1500
-      },
-      "Dept OF Info, Technology AND Telecommunications": {
-        "count": 2,
-        "total": 290000
-      },
-      "Dept OF Probation": {
-        "count": 2,
-        "total": 21020
+      "Dept OF Homeless Services": {
+        "count": 35,
+        "total": 674714.1699999999
       },
       "Misc.": {
         "count": 2,
         "total": 651523.54
       },
-      "Dept OF Emergency Management": {
+      "ACS — Administration for Children's Services": {
+        "count": 20,
+        "total": 434841.44999999995
+      },
+      "City University (cuny)": {
+        "count": 5,
+        "total": 394000
+      },
+      "Dept OF Info, Technology AND Telecommunications": {
+        "count": 2,
+        "total": 290000
+      },
+      "NY Housing Authority": {
+        "count": 10,
+        "total": 272300
+      },
+      "Dept OF Finance": {
+        "count": 3,
+        "total": 205000
+      },
+      "Comptroller": {
+        "count": 4,
+        "total": 157004
+      },
+      "City Sheriff": {
         "count": 1,
-        "total": 4222.47
+        "total": 150000
+      },
+      "Taxi & Limousine Commission": {
+        "count": 10,
+        "total": 122145.71
+      },
+      "Dept OF Health AND Mental Hygiene": {
+        "count": 11,
+        "total": 121431.73999999999
+      },
+      "NYC Transit Authority": {
+        "count": 5,
+        "total": 109500
+      },
+      "Dept OF Juvenile Justice": {
+        "count": 3,
+        "total": 105450
+      },
+      "Dept OF Mental Health": {
+        "count": 9,
+        "total": 86769.84
+      },
+      "Dept OF Cultural Affairs": {
+        "count": 1,
+        "total": 50000
+      },
+      "Board OF Elections": {
+        "count": 2,
+        "total": 44000
       },
       "Public Admin. - Bronx": {
         "count": 2,
         "total": 40000
       },
+      "BD. OF Corrections": {
+        "count": 1,
+        "total": 35000
+      },
       "Dept OF Social Services": {
         "count": 1,
         "total": 35000
       },
-      "Dist. Atty. Queens": {
-        "count": 1,
-        "total": 417
+      "Office OF Chief Medical Examination": {
+        "count": 4,
+        "total": 22661.920000000002
       },
-      "BD. OF Water Supply": {
+      "Dept OF Probation": {
+        "count": 2,
+        "total": 21020
+      },
+      "Criminal Court": {
         "count": 1,
-        "total": 3800
+        "total": 20000
       },
       "Surrogates Court - NY": {
         "count": 1,
         "total": 13500
       },
+      "DOT - Bureau OF Marine/aviation": {
+        "count": 1,
+        "total": 10000
+      },
+      "Dept OF Consumer Affairs": {
+        "count": 2,
+        "total": 8500
+      },
+      "Dept OF Emergency Management": {
+        "count": 1,
+        "total": 4222.47
+      },
+      "BD. OF Water Supply": {
+        "count": 1,
+        "total": 3800
+      },
+      "Brooklyn Public Library": {
+        "count": 1,
+        "total": 3500
+      },
       "Dept OF Investigations": {
         "count": 1,
         "total": 2523.39
       },
+      "Civil Court": {
+        "count": 1,
+        "total": 2500
+      },
+      "Dist. Atty. S.i.": {
+        "count": 2,
+        "total": 2349
+      },
       "City Council": {
         "count": 1,
         "total": 2129
+      },
+      "NY Public Library (man)": {
+        "count": 1,
+        "total": 1500
+      },
+      "Office Municipal Labor Relations": {
+        "count": 1,
+        "total": 1450
+      },
+      "Dist. Atty. Queens": {
+        "count": 1,
+        "total": 417
       },
       "Dist. Atty. NY": {
         "count": 1,
@@ -840,53 +840,81 @@
         "count": 4014,
         "total": 308244541.11999965
       },
-      "Dept. OF Correction": {
-        "count": 952,
-        "total": 37348726.720000006
-      },
-      "DSNY — Department of Sanitation": {
-        "count": 953,
-        "total": 55271960.790000044
+      "Health AND Hospitals Corp.(hhc)": {
+        "count": 221,
+        "total": 95663121.10000001
       },
       "DOT — Department of Transportation": {
         "count": 1180,
         "total": 61396668.96
       },
-      "Dept. OF Probation": {
-        "count": 3,
-        "total": 24463.53
+      "DSNY — Department of Sanitation": {
+        "count": 953,
+        "total": 55271960.790000044
       },
       "FDNY — Fire Department": {
         "count": 496,
         "total": 43515101.19999999
       },
-      "Health AND Hospitals Corp.(hhc)": {
-        "count": 221,
-        "total": 95663121.10000001
+      "Dept. OF Correction": {
+        "count": 952,
+        "total": 37348726.720000006
       },
       "Dept. OF Education": {
         "count": 300,
         "total": 28694092.529999994
       },
+      "Dept. OF Parks AND Recreation": {
+        "count": 272,
+        "total": 15442894.18
+      },
       "Unknown": {
         "count": 64,
         "total": 9530751.43
       },
-      "Dept. OF Parks AND Recreation": {
-        "count": 272,
-        "total": 15442894.18
+      "Department OF Environmental Protection(dep)": {
+        "count": 205,
+        "total": 7855456.180000003
+      },
+      "Taxi & Limousine Comm.": {
+        "count": 6,
+        "total": 2547180.24
+      },
+      "DOB — Department of Buildings": {
+        "count": 21,
+        "total": 1386119.5199999998
+      },
+      "Oath - Office OF Admin Trials AND Hearings": {
+        "count": 1,
+        "total": 1100000
       },
       "Administration FOR Children Services": {
         "count": 16,
         "total": 1011377.5
       },
-      "City Council": {
-        "count": 1,
-        "total": 25000
+      "LAW Department": {
+        "count": 5,
+        "total": 881995.26
       },
-      "Department OF Environmental Protection(dep)": {
-        "count": 205,
-        "total": 7855456.180000003
+      "NYC Housing Authority": {
+        "count": 10,
+        "total": 842000
+      },
+      "Housing,preservation AND Development(hpd)": {
+        "count": 13,
+        "total": 808106
+      },
+      "Department OF Health": {
+        "count": 6,
+        "total": 664566.46
+      },
+      "Human Resources Administration (hra)": {
+        "count": 20,
+        "total": 620453.29
+      },
+      "Department OF Finance": {
+        "count": 5,
+        "total": 526908.0700000001
       },
       "Dept. OF Citywide Administrative Services": {
         "count": 10,
@@ -896,65 +924,85 @@
         "count": 1,
         "total": 275000
       },
-      "DOB — Department of Buildings": {
-        "count": 21,
-        "total": 1386119.5199999998
-      },
-      "Human Resources Administration (hra)": {
-        "count": 20,
-        "total": 620453.29
-      },
-      "Comptroller": {
-        "count": 4,
-        "total": 15111.57
-      },
-      "Taxi & Limousine Comm.": {
-        "count": 6,
-        "total": 2547180.24
-      },
-      "Department OF Health": {
-        "count": 6,
-        "total": 664566.46
-      },
       "Dept. OF Juvenile Justice": {
         "count": 3,
         "total": 272488
       },
-      "Housing,preservation AND Development(hpd)": {
-        "count": 13,
-        "total": 808106
+      "Dept OF Info, Technology & Telecommunication": {
+        "count": 2,
+        "total": 208350
+      },
+      "Ofc. OF Chief Med. Exam": {
+        "count": 5,
+        "total": 197414.88
       },
       "DHS — Department of Homeless Services": {
         "count": 16,
         "total": 189200.24
       },
-      "NYC Housing Authority": {
-        "count": 10,
-        "total": 842000
+      "Boro Pres. Bklyn.": {
+        "count": 2,
+        "total": 126000
       },
-      "NYC Transit Authority": {
-        "count": 5,
-        "total": 91500
-      },
-      "Dist. Atty. NY": {
-        "count": 1,
-        "total": 881
-      },
-      "Oath - Office OF Admin Trials AND Hearings": {
-        "count": 1,
-        "total": 1100000
+      "Dist. Atty. Kings": {
+        "count": 2,
+        "total": 103000
       },
       "City University (cuny)": {
         "count": 5,
         "total": 102500
       },
-      "LAW Department": {
+      "NYC Transit Authority": {
         "count": 5,
-        "total": 881995.26
+        "total": 91500
+      },
+      "Department OF Design AND Construction": {
+        "count": 4,
+        "total": 47655
+      },
+      "Dept OF Parks - Capital": {
+        "count": 1,
+        "total": 35000
+      },
+      "City Council": {
+        "count": 1,
+        "total": 25000
+      },
+      "City Sheriff": {
+        "count": 1,
+        "total": 25000
+      },
+      "Dept. OF Probation": {
+        "count": 3,
+        "total": 24463.53
       },
       "Department OF Mental Health": {
         "count": 4,
         "total": 20297.55
+      },
+      "Comptroller": {
+        "count": 4,
+        "total": 15111.57
+      },
+      "Dot-bur. OF Marine/aviation": {
+        "count": 1,
+        "total": 10000
+      },
+      "Sup. CT. 11th Jud. Dist. (queens)": {
+        "count": 1,
+        "total": 10000
+      },
+      "Dot-bur. OF Traffic": {
+        "count": 1,
+        "total": 8000
+      },
+      "Office OF THE Actuary": {
+        "count": 1,
+        "total": 4000
+      },
+      "NY Public Library": {
+        "count": 1,
+        "total": 3750
       },
       "NYC Office OF Emergency Management": {
         "count": 2,
@@ -964,38 +1012,6 @@
         "count": 2,
         "total": 1671.88
       },
-      "Dept OF Parks - Capital": {
-        "count": 1,
-        "total": 35000
-      },
-      "Dist. Atty. Kings": {
-        "count": 2,
-        "total": 103000
-      },
-      "Ofc. OF Chief Med. Exam": {
-        "count": 5,
-        "total": 197414.88
-      },
-      "NY Public Library": {
-        "count": 1,
-        "total": 3750
-      },
-      "Dot-bur. OF Marine/aviation": {
-        "count": 1,
-        "total": 10000
-      },
-      "Department OF Finance": {
-        "count": 5,
-        "total": 526908.0700000001
-      },
-      "Department OF Design AND Construction": {
-        "count": 4,
-        "total": 47655
-      },
-      "Boro Pres. Bklyn.": {
-        "count": 2,
-        "total": 126000
-      },
       "Dept. OF Records & Info.": {
         "count": 1,
         "total": 1443
@@ -1004,36 +1020,12 @@
         "count": 1,
         "total": 975
       },
-      "Dept OF Info, Technology & Telecommunication": {
-        "count": 2,
-        "total": 208350
-      },
-      "Sup. CT. 11th Jud. Dist. (queens)": {
+      "Dist. Atty. NY": {
         "count": 1,
-        "total": 10000
-      },
-      "City Sheriff": {
-        "count": 1,
-        "total": 25000
-      },
-      "Dot-bur. OF Traffic": {
-        "count": 1,
-        "total": 8000
-      },
-      "Office OF THE Actuary": {
-        "count": 1,
-        "total": 4000
+        "total": 881
       }
     },
     "2018": {
-      "DOE — Department of Education": {
-        "count": 294,
-        "total": 27467731.849999998
-      },
-      "Other": {
-        "count": 207,
-        "total": 25058727.820000004
-      },
       "NYPD — New York City Police Department": {
         "count": 3745,
         "total": 229750519.69000003
@@ -1046,33 +1038,41 @@
         "count": 943,
         "total": 74901592.46999995
       },
-      "FDNY — Fire Department": {
-        "count": 479,
-        "total": 24376486.070000004
-      },
-      "NYC Human Resources Administration": {
-        "count": 21,
-        "total": 1046699.02
-      },
       "H+H — NYC Health + Hospitals": {
         "count": 224,
         "total": 69967578.97
-      },
-      "DEP — Department of Environmental Protection": {
-        "count": 219,
-        "total": 10626492.559999999
       },
       "DOC — Department of Correction": {
         "count": 1184,
         "total": 31518806.39999999
       },
+      "DOE — Department of Education": {
+        "count": 294,
+        "total": 27467731.849999998
+      },
+      "Other": {
+        "count": 207,
+        "total": 25058727.820000004
+      },
+      "FDNY — Fire Department": {
+        "count": 479,
+        "total": 24376486.070000004
+      },
       "Department of Parks & Recration": {
         "count": 247,
         "total": 18972439.759999994
       },
+      "DEP — Department of Environmental Protection": {
+        "count": 219,
+        "total": 10626492.559999999
+      },
       "Department of Housing Preservation and Development": {
         "count": 14,
         "total": 5101331.2
+      },
+      "NYC Human Resources Administration": {
+        "count": 21,
+        "total": 1046699.02
       },
       "DOB — Department of Buildings": {
         "count": 8,
@@ -1080,33 +1080,33 @@
       }
     },
     "2019": {
-      "DSNY — Department of Sanitation": {
-        "count": 890,
-        "total": 53158209.859999985
+      "NYPD — New York City Police Department": {
+        "count": 3426,
+        "total": 222071865.4800003
+      },
+      "H+H — NYC Health + Hospitals": {
+        "count": 226,
+        "total": 93465312.03999999
       },
       "DOT — Department of Transportation": {
         "count": 960,
         "total": 78155950.3
       },
-      "NYPD — New York City Police Department": {
-        "count": 3426,
-        "total": 222071865.4800003
-      },
-      "DOC — Department of Correction": {
-        "count": 1688,
-        "total": 36088479.63000001
+      "DSNY — Department of Sanitation": {
+        "count": 890,
+        "total": 53158209.859999985
       },
       "DOE — Department of Education": {
         "count": 307,
         "total": 36630040.730000004
       },
+      "DOC — Department of Correction": {
+        "count": 1688,
+        "total": 36088479.63000001
+      },
       "FDNY — Fire Department": {
         "count": 491,
         "total": 18978345.399999995
-      },
-      "H+H — NYC Health + Hospitals": {
-        "count": 226,
-        "total": 93465312.03999999
       },
       "Other": {
         "count": 276,
@@ -1134,37 +1134,33 @@
       }
     },
     "2020": {
-      "DSNY — Department of Sanitation": {
-        "count": 682,
-        "total": 37706536.17
-      },
-      "FDNY — Fire Department": {
-        "count": 484,
-        "total": 28352943.83
-      },
       "NYPD — New York City Police Department": {
         "count": 3285,
         "total": 205027037.31999996
-      },
-      "H+H — NYC Health + Hospitals": {
-        "count": 147,
-        "total": 67405914.93
       },
       "DOT — Department of Transportation": {
         "count": 921,
         "total": 91264652.97999996
       },
+      "H+H — NYC Health + Hospitals": {
+        "count": 147,
+        "total": 67405914.93
+      },
+      "DSNY — Department of Sanitation": {
+        "count": 682,
+        "total": 37706536.17
+      },
       "DOC — Department of Correction": {
         "count": 1408,
         "total": 34374783.099999994
       },
+      "FDNY — Fire Department": {
+        "count": 484,
+        "total": 28352943.83
+      },
       "DOE — Department of Education": {
         "count": 262,
         "total": 27967282.840000004
-      },
-      "DEP — Department of Environmental Protection": {
-        "count": 136,
-        "total": 4068182.9600000004
       },
       "Other": {
         "count": 244,
@@ -1174,9 +1170,9 @@
         "count": 287,
         "total": 22689773.88999999
       },
-      "NYC Human Resources Administration": {
-        "count": 12,
-        "total": 441801.65
+      "DEP — Department of Environmental Protection": {
+        "count": 136,
+        "total": 4068182.9600000004
       },
       "DOB — Department of Buildings": {
         "count": 16,
@@ -1185,32 +1181,28 @@
       "Department of Housing Preservation and Development": {
         "count": 7,
         "total": 770690.9099999999
+      },
+      "NYC Human Resources Administration": {
+        "count": 12,
+        "total": 441801.65
       }
     },
     "2021": {
-      "DOT — Department of Transportation": {
-        "count": 842,
-        "total": 85396304.28000003
-      },
       "NYPD — New York City Police Department": {
         "count": 2477,
         "total": 206718877.44999984
       },
-      "Other": {
-        "count": 259,
-        "total": 20910856.540000007
-      },
-      "FDNY — Fire Department": {
-        "count": 433,
-        "total": 26914519.950000007
+      "DOT — Department of Transportation": {
+        "count": 842,
+        "total": 85396304.28000003
       },
       "H+H — NYC Health + Hospitals": {
         "count": 121,
         "total": 68856949.39
       },
-      "Department of Parks & Recration": {
-        "count": 237,
-        "total": 21206243.959999993
+      "DSNY — Department of Sanitation": {
+        "count": 586,
+        "total": 51626955.63000005
       },
       "DOC — Department of Correction": {
         "count": 1163,
@@ -1220,6 +1212,18 @@
         "count": 234,
         "total": 28031153.120000005
       },
+      "FDNY — Fire Department": {
+        "count": 433,
+        "total": 26914519.950000007
+      },
+      "Department of Parks & Recration": {
+        "count": 237,
+        "total": 21206243.959999993
+      },
+      "Other": {
+        "count": 259,
+        "total": 20910856.540000007
+      },
       "DEP — Department of Environmental Protection": {
         "count": 193,
         "total": 15183232.970000006
@@ -1227,10 +1231,6 @@
       "NYC Human Resources Administration": {
         "count": 20,
         "total": 2578449.05
-      },
-      "DSNY — Department of Sanitation": {
-        "count": 586,
-        "total": 51626955.63000005
       },
       "DOB — Department of Buildings": {
         "count": 17,
@@ -1242,49 +1242,45 @@
       }
     },
     "2022": {
-      "DSNY — Department of Sanitation": {
-        "count": 704,
-        "total": 79923741.11999993
-      },
-      "Other": {
-        "count": 247,
-        "total": 34649835.309999995
+      "NYPD — New York City Police Department": {
+        "count": 2832,
+        "total": 237178059.16999996
       },
       "DOT — Department of Transportation": {
         "count": 820,
         "total": 93361606.19999999
       },
-      "NYPD — New York City Police Department": {
-        "count": 2832,
-        "total": 237178059.16999996
-      },
-      "DOC — Department of Correction": {
-        "count": 1265,
-        "total": 37206810.56
-      },
-      "FDNY — Fire Department": {
-        "count": 426,
-        "total": 24674450.720000003
-      },
-      "H+H — NYC Health + Hospitals": {
-        "count": 118,
-        "total": 61895401.34
+      "DSNY — Department of Sanitation": {
+        "count": 704,
+        "total": 79923741.11999993
       },
       "DOE — Department of Education": {
         "count": 220,
         "total": 78198731.3
       },
+      "H+H — NYC Health + Hospitals": {
+        "count": 118,
+        "total": 61895401.34
+      },
+      "DOC — Department of Correction": {
+        "count": 1265,
+        "total": 37206810.56
+      },
+      "Other": {
+        "count": 247,
+        "total": 34649835.309999995
+      },
       "Department of Parks & Recration": {
         "count": 225,
         "total": 29009150.599999994
       },
+      "FDNY — Fire Department": {
+        "count": 426,
+        "total": 24674450.720000003
+      },
       "DEP — Department of Environmental Protection": {
         "count": 155,
         "total": 9986086.29
-      },
-      "NYC Human Resources Administration": {
-        "count": 7,
-        "total": 459191.83
       },
       "DOB — Department of Buildings": {
         "count": 13,
@@ -1293,17 +1289,13 @@
       "Department of Housing Preservation and Development": {
         "count": 7,
         "total": 842187.97
+      },
+      "NYC Human Resources Administration": {
+        "count": 7,
+        "total": 459191.83
       }
     },
     "2023": {
-      "DEP — Department of Environmental Protection": {
-        "count": 148,
-        "total": 15047832.19
-      },
-      "DSNY — Department of Sanitation": {
-        "count": 597,
-        "total": 75384963.84999996
-      },
       "NYPD — New York City Police Department": {
         "count": 2821,
         "total": 266699025.6400001
@@ -1312,33 +1304,37 @@
         "count": 308,
         "total": 92821118.99000001
       },
-      "FDNY — Fire Department": {
-        "count": 398,
-        "total": 45750982.48999999
-      },
       "DOT — Department of Transportation": {
         "count": 845,
         "total": 91243592.80000003
       },
-      "DOC — Department of Correction": {
-        "count": 1187,
-        "total": 38005634.03
+      "DSNY — Department of Sanitation": {
+        "count": 597,
+        "total": 75384963.84999996
       },
       "H+H — NYC Health + Hospitals": {
         "count": 93,
         "total": 54466824.65
       },
+      "FDNY — Fire Department": {
+        "count": 398,
+        "total": 45750982.48999999
+      },
+      "DOC — Department of Correction": {
+        "count": 1187,
+        "total": 38005634.03
+      },
       "Other": {
         "count": 237,
         "total": 32744940.550000004
       },
-      "Department of Housing Preservation and Development": {
-        "count": 7,
-        "total": 485000
-      },
       "Department of Parks & Recration": {
         "count": 222,
         "total": 23336115.349999998
+      },
+      "DEP — Department of Environmental Protection": {
+        "count": 148,
+        "total": 15047832.19
       },
       "DOB — Department of Buildings": {
         "count": 10,
@@ -1347,6 +1343,10 @@
       "NYC Human Resources Administration": {
         "count": 9,
         "total": 920731.47
+      },
+      "Department of Housing Preservation and Development": {
+        "count": 7,
+        "total": 485000
       }
     }
   },
@@ -1404,15 +1404,41 @@
       "type_raw": "Police Action"
     },
     {
-      "id": "2022PI021570",
-      "fy": 2023,
-      "borough": null,
-      "occurred": "2021-11-18",
-      "filed": "2022-07-29",
-      "disposed": "2023-01-13",
+      "id": "2015PI005698",
+      "fy": 2017,
+      "borough": "BROOKLYN (KINGS)",
+      "occurred": "1992-06-18",
+      "filed": "2015-03-02",
+      "disposed": "2017-05-17",
       "amount": 13000000,
-      "agency": "Other",
-      "agency_raw": "Other",
+      "agency": "NYPD — New York City Police Department",
+      "agency_raw": "POLICE DEPARTMENT",
+      "type": "Civil rights",
+      "type_raw": "CIVIL RIGHTS CLAIMS"
+    },
+    {
+      "id": "2015PI024503",
+      "fy": 2017,
+      "borough": "BROOKLYN (KINGS)",
+      "occurred": "1992-06-19",
+      "filed": "2015-07-24",
+      "disposed": "2017-06-14",
+      "amount": 13000000,
+      "agency": "NYPD — New York City Police Department",
+      "agency_raw": "POLICE DEPARTMENT",
+      "type": "Civil rights",
+      "type_raw": "CIVIL RIGHTS CLAIMS"
+    },
+    {
+      "id": "2021PI021659",
+      "fy": 2022,
+      "borough": "QUEENS",
+      "occurred": "1994-03-09",
+      "filed": "2021-08-16",
+      "disposed": "2021-12-30",
+      "amount": 13000000,
+      "agency": "NYPD — New York City Police Department",
+      "agency_raw": "Police Department",
       "type": "Civil rights",
       "type_raw": "Civil Rights"
     },
@@ -1430,43 +1456,17 @@
       "type_raw": "Civil Rights"
     },
     {
-      "id": "2021PI021659",
-      "fy": 2022,
-      "borough": "QUEENS",
-      "occurred": "1994-03-09",
-      "filed": "2021-08-16",
-      "disposed": "2021-12-30",
+      "id": "2022PI021570",
+      "fy": 2023,
+      "borough": null,
+      "occurred": "2021-11-18",
+      "filed": "2022-07-29",
+      "disposed": "2023-01-13",
       "amount": 13000000,
-      "agency": "NYPD — New York City Police Department",
-      "agency_raw": "Police Department",
+      "agency": "Other",
+      "agency_raw": "Other",
       "type": "Civil rights",
       "type_raw": "Civil Rights"
-    },
-    {
-      "id": "2015PI024503",
-      "fy": 2017,
-      "borough": "BROOKLYN (KINGS)",
-      "occurred": "1992-06-19",
-      "filed": "2015-07-24",
-      "disposed": "2017-06-14",
-      "amount": 13000000,
-      "agency": "NYPD — New York City Police Department",
-      "agency_raw": "POLICE DEPARTMENT",
-      "type": "Civil rights",
-      "type_raw": "CIVIL RIGHTS CLAIMS"
-    },
-    {
-      "id": "2015PI005698",
-      "fy": 2017,
-      "borough": "BROOKLYN (KINGS)",
-      "occurred": "1992-06-18",
-      "filed": "2015-03-02",
-      "disposed": "2017-05-17",
-      "amount": 13000000,
-      "agency": "NYPD — New York City Police Department",
-      "agency_raw": "POLICE DEPARTMENT",
-      "type": "Civil rights",
-      "type_raw": "CIVIL RIGHTS CLAIMS"
     },
     {
       "id": "2018PI017104",
@@ -1547,17 +1547,17 @@
       "type_raw": "CIVIL RIGHTS CLAIMS"
     },
     {
-      "id": "2020PI027919",
-      "fy": 2021,
-      "borough": "BRONX",
-      "occurred": "1989-01-05",
-      "filed": "2020-11-06",
-      "disposed": "2021-06-11",
+      "id": "2016PI023068",
+      "fy": 2019,
+      "borough": "BROOKLYN (KINGS)",
+      "occurred": "2016-07-16",
+      "filed": "2016-07-29",
+      "disposed": "2018-12-21",
       "amount": 11000000,
-      "agency": "NYPD — New York City Police Department",
-      "agency_raw": "Police Department",
-      "type": "Civil rights",
-      "type_raw": "Civil Rights"
+      "agency": "DOT — Department of Transportation",
+      "agency_raw": "Department of Transportation",
+      "type": "Roadway / pothole",
+      "type_raw": "DEFECTIVE ROADWAY (PI)"
     },
     {
       "id": "2019PI027140",
@@ -1573,26 +1573,13 @@
       "type_raw": "Civil Rights"
     },
     {
-      "id": "2016PI023068",
-      "fy": 2019,
-      "borough": "BROOKLYN (KINGS)",
-      "occurred": "2016-07-16",
-      "filed": "2016-07-29",
-      "disposed": "2018-12-21",
+      "id": "2020PI027919",
+      "fy": 2021,
+      "borough": "BRONX",
+      "occurred": "1989-01-05",
+      "filed": "2020-11-06",
+      "disposed": "2021-06-11",
       "amount": 11000000,
-      "agency": "DOT — Department of Transportation",
-      "agency_raw": "Department of Transportation",
-      "type": "Roadway / pothole",
-      "type_raw": "DEFECTIVE ROADWAY (PI)"
-    },
-    {
-      "id": "2020PI014351",
-      "fy": 2022,
-      "borough": null,
-      "occurred": null,
-      "filed": "2020-06-12",
-      "disposed": "2022-05-11",
-      "amount": 10500000,
       "agency": "NYPD — New York City Police Department",
       "agency_raw": "Police Department",
       "type": "Civil rights",
@@ -1612,13 +1599,13 @@
       "type_raw": "Motor Vehicle"
     },
     {
-      "id": "2021PI020794",
-      "fy": 2023,
-      "borough": "BROOKLYN (KINGS)",
-      "occurred": "1992-11-25",
-      "filed": "2021-08-10",
-      "disposed": "2023-03-15",
-      "amount": 10000000,
+      "id": "2020PI014351",
+      "fy": 2022,
+      "borough": null,
+      "occurred": null,
+      "filed": "2020-06-12",
+      "disposed": "2022-05-11",
+      "amount": 10500000,
       "agency": "NYPD — New York City Police Department",
       "agency_raw": "Police Department",
       "type": "Civil rights",
@@ -1631,6 +1618,19 @@
       "occurred": null,
       "filed": "2021-04-08",
       "disposed": "2023-02-07",
+      "amount": 10000000,
+      "agency": "NYPD — New York City Police Department",
+      "agency_raw": "Police Department",
+      "type": "Civil rights",
+      "type_raw": "Civil Rights"
+    },
+    {
+      "id": "2021PI020794",
+      "fy": 2023,
+      "borough": "BROOKLYN (KINGS)",
+      "occurred": "1992-11-25",
+      "filed": "2021-08-10",
+      "disposed": "2023-03-15",
       "amount": 10000000,
       "agency": "NYPD — New York City Police Department",
       "agency_raw": "Police Department",
@@ -1651,7 +1651,7 @@
       "type_raw": "CIVIL RIGHTS CLAIMS"
     },
     {
-      "id": "2016PI009176",
+      "id": "2016PI009170",
       "fy": 2017,
       "borough": "BROOKLYN (KINGS)",
       "occurred": "2015-12-16",
@@ -1664,7 +1664,7 @@
       "type_raw": "PEACE OFFICER/POLICE ACTION (PI)"
     },
     {
-      "id": "2016PI009170",
+      "id": "2016PI009176",
       "fy": 2017,
       "borough": "BROOKLYN (KINGS)",
       "occurred": "2015-12-16",
@@ -1781,19 +1781,6 @@
       "type_raw": "Civil Rights"
     },
     {
-      "id": "2020PI031090",
-      "fy": 2022,
-      "borough": "BROOKLYN (KINGS)",
-      "occurred": "2020-10-30",
-      "filed": "2020-12-22",
-      "disposed": "2022-01-14",
-      "amount": 8400000,
-      "agency": "NYPD — New York City Police Department",
-      "agency_raw": "Police Department",
-      "type": "Civil rights",
-      "type_raw": "Civil Rights"
-    },
-    {
       "id": "2014PI015154",
       "fy": 2022,
       "borough": "BROOKLYN (KINGS)",
@@ -1805,6 +1792,19 @@
       "agency_raw": "NYC Health + Hospitals",
       "type": "Medical malpractice",
       "type_raw": "Medical Malpractice"
+    },
+    {
+      "id": "2020PI031090",
+      "fy": 2022,
+      "borough": "BROOKLYN (KINGS)",
+      "occurred": "2020-10-30",
+      "filed": "2020-12-22",
+      "disposed": "2022-01-14",
+      "amount": 8400000,
+      "agency": "NYPD — New York City Police Department",
+      "agency_raw": "Police Department",
+      "type": "Civil rights",
+      "type_raw": "Civil Rights"
     },
     {
       "id": "2019PI035602",
@@ -1846,6 +1846,19 @@
       "type_raw": "Civil Rights"
     },
     {
+      "id": "2012PI007081",
+      "fy": 2016,
+      "borough": "MANHATTAN (NEW YORK)",
+      "occurred": "2011-10-16",
+      "filed": "2012-03-14",
+      "disposed": "2016-03-30",
+      "amount": 8000000,
+      "agency": "Health & Hospital S Corporation",
+      "agency_raw": "HEALTH & HOSPITAL S CORPORATION",
+      "type": "Medical malpractice",
+      "type_raw": "MEDICAL MALPRACTICE (PI)"
+    },
+    {
       "id": "2012PI010008",
       "fy": 2021,
       "borough": "QUEENS",
@@ -1859,24 +1872,11 @@
       "type_raw": "Civil Rights"
     },
     {
-      "id": "2015PI026543",
-      "fy": 2019,
-      "borough": "QUEENS",
-      "occurred": "2015-08-22",
-      "filed": "2015-09-10",
-      "disposed": "2018-10-25",
-      "amount": 8000000,
-      "agency": "DSNY — Department of Sanitation",
-      "agency_raw": "Department of Sanitation",
-      "type": "Employee Uniformed Service",
-      "type_raw": "EMPLOYEE UNIFORMED SERVICE (PI)"
-    },
-    {
-      "id": "2014PI018422",
+      "id": "2014PI017292",
       "fy": 2016,
       "borough": "BRONX",
-      "occurred": "1995-03-16",
-      "filed": "2014-06-09",
+      "occurred": "1995-02-04",
+      "filed": "2014-05-30",
       "disposed": "2016-04-21",
       "amount": 8000000,
       "agency": "NYPD — New York City Police Department",
@@ -1889,19 +1889,6 @@
       "fy": 2016,
       "borough": "BRONX",
       "occurred": "2012-12-13",
-      "filed": "2014-05-30",
-      "disposed": "2016-04-21",
-      "amount": 8000000,
-      "agency": "NYPD — New York City Police Department",
-      "agency_raw": "POLICE DEPARTMENT",
-      "type": "Civil rights",
-      "type_raw": "CIVIL RIGHTS CLAIMS"
-    },
-    {
-      "id": "2014PI017292",
-      "fy": 2016,
-      "borough": "BRONX",
-      "occurred": "1995-02-04",
       "filed": "2014-05-30",
       "disposed": "2016-04-21",
       "amount": 8000000,
@@ -1937,17 +1924,30 @@
       "type_raw": "CIVIL RIGHTS CLAIMS"
     },
     {
-      "id": "2012PI007081",
+      "id": "2014PI018422",
       "fy": 2016,
-      "borough": "MANHATTAN (NEW YORK)",
-      "occurred": "2011-10-16",
-      "filed": "2012-03-14",
-      "disposed": "2016-03-30",
+      "borough": "BRONX",
+      "occurred": "1995-03-16",
+      "filed": "2014-06-09",
+      "disposed": "2016-04-21",
       "amount": 8000000,
-      "agency": "Health & Hospital S Corporation",
-      "agency_raw": "HEALTH & HOSPITAL S CORPORATION",
-      "type": "Medical malpractice",
-      "type_raw": "MEDICAL MALPRACTICE (PI)"
+      "agency": "NYPD — New York City Police Department",
+      "agency_raw": "POLICE DEPARTMENT",
+      "type": "Civil rights",
+      "type_raw": "CIVIL RIGHTS CLAIMS"
+    },
+    {
+      "id": "2015PI026543",
+      "fy": 2019,
+      "borough": "QUEENS",
+      "occurred": "2015-08-22",
+      "filed": "2015-09-10",
+      "disposed": "2018-10-25",
+      "amount": 8000000,
+      "agency": "DSNY — Department of Sanitation",
+      "agency_raw": "Department of Sanitation",
+      "type": "Employee Uniformed Service",
+      "type_raw": "EMPLOYEE UNIFORMED SERVICE (PI)"
     },
     {
       "id": "2005PI018752",
@@ -1989,19 +1989,6 @@
       "type_raw": "Civil Rights"
     },
     {
-      "id": "2017PI003127",
-      "fy": 2018,
-      "borough": "MANHATTAN (NEW YORK)",
-      "occurred": "2016-11-03",
-      "filed": "2017-02-01",
-      "disposed": "2018-03-26",
-      "amount": 7500000,
-      "agency": "NYPD — New York City Police Department",
-      "agency_raw": "Police Department",
-      "type": "Civil rights",
-      "type_raw": "Civil Rights"
-    },
-    {
       "id": "2005PI005144",
       "fy": 2017,
       "borough": "BRONX",
@@ -2015,43 +2002,17 @@
       "type_raw": "EMPLOYEE UNIFORMED SERVICE (PI)"
     },
     {
-      "id": "2021PI020010",
-      "fy": 2022,
-      "borough": "STATEN ISLAND (RICHMOND)",
-      "occurred": "2021-07-22",
-      "filed": "2021-08-03",
-      "disposed": "2022-04-28",
-      "amount": 7000000,
-      "agency": "NYPD — New York City Police Department",
-      "agency_raw": "Police Department",
-      "type": "Civil rights",
-      "type_raw": "Civil Rights"
-    },
-    {
-      "id": "2021PI010370",
-      "fy": 2022,
-      "borough": "BROOKLYN (KINGS)",
-      "occurred": null,
-      "filed": "2021-04-15",
-      "disposed": "2021-12-14",
-      "amount": 7000000,
-      "agency": "NYPD — New York City Police Department",
-      "agency_raw": "Police Department",
-      "type": "Civil rights",
-      "type_raw": "Civil Rights"
-    },
-    {
-      "id": "2010PI009864",
-      "fy": 2017,
+      "id": "2017PI003127",
+      "fy": 2018,
       "borough": "MANHATTAN (NEW YORK)",
-      "occurred": "2009-11-20",
-      "filed": "2010-02-10",
-      "disposed": "2017-02-17",
-      "amount": 7000000,
+      "occurred": "2016-11-03",
+      "filed": "2017-02-01",
+      "disposed": "2018-03-26",
+      "amount": 7500000,
       "agency": "NYPD — New York City Police Department",
-      "agency_raw": "POLICE DEPARTMENT",
-      "type": "Police action",
-      "type_raw": "PEACE OFFICER/POLICE ACTION (PI)"
+      "agency_raw": "Police Department",
+      "type": "Civil rights",
+      "type_raw": "Civil Rights"
     },
     {
       "id": "2005PI003842",
@@ -2078,6 +2039,45 @@
       "agency_raw": "FIRE DEPARTMENT",
       "type": "Employee Uniformed Service",
       "type_raw": "EMPLOYEE UNIFORMED SERVICE (PI)"
+    },
+    {
+      "id": "2010PI009864",
+      "fy": 2017,
+      "borough": "MANHATTAN (NEW YORK)",
+      "occurred": "2009-11-20",
+      "filed": "2010-02-10",
+      "disposed": "2017-02-17",
+      "amount": 7000000,
+      "agency": "NYPD — New York City Police Department",
+      "agency_raw": "POLICE DEPARTMENT",
+      "type": "Police action",
+      "type_raw": "PEACE OFFICER/POLICE ACTION (PI)"
+    },
+    {
+      "id": "2021PI010370",
+      "fy": 2022,
+      "borough": "BROOKLYN (KINGS)",
+      "occurred": null,
+      "filed": "2021-04-15",
+      "disposed": "2021-12-14",
+      "amount": 7000000,
+      "agency": "NYPD — New York City Police Department",
+      "agency_raw": "Police Department",
+      "type": "Civil rights",
+      "type_raw": "Civil Rights"
+    },
+    {
+      "id": "2021PI020010",
+      "fy": 2022,
+      "borough": "STATEN ISLAND (RICHMOND)",
+      "occurred": "2021-07-22",
+      "filed": "2021-08-03",
+      "disposed": "2022-04-28",
+      "amount": 7000000,
+      "agency": "NYPD — New York City Police Department",
+      "agency_raw": "Police Department",
+      "type": "Civil rights",
+      "type_raw": "Civil Rights"
     },
     {
       "id": "2014PI030683",
@@ -2236,17 +2236,30 @@
       "type_raw": "Motor Vehicle"
     },
     {
-      "id": "2017PI030252",
-      "fy": 2019,
+      "id": "2011PI031264",
+      "fy": 2018,
       "borough": "BROOKLYN (KINGS)",
-      "occurred": "2011-12-04",
-      "filed": "2012-02-23",
-      "disposed": "2019-01-15",
+      "occurred": "2011-08-08",
+      "filed": "2011-09-08",
+      "disposed": "2017-07-27",
       "amount": 6000000,
-      "agency": "DOT — Department of Transportation",
-      "agency_raw": "Department of Transportation",
-      "type": "Medical malpractice",
-      "type_raw": "MEDICAL MALPRACTICE (PI)"
+      "agency": "DSNY — Department of Sanitation",
+      "agency_raw": "Department of Sanitation",
+      "type": "Motor vehicle",
+      "type_raw": "Motor Vehicle"
+    },
+    {
+      "id": "2012PI021290",
+      "fy": 2016,
+      "borough": "BRONX",
+      "occurred": "2012-02-03",
+      "filed": "2012-08-17",
+      "disposed": "2016-03-10",
+      "amount": 6000000,
+      "agency": "NYPD — New York City Police Department",
+      "agency_raw": "POLICE DEPARTMENT",
+      "type": "Civil rights",
+      "type_raw": "CIVIL RIGHTS CLAIMS"
     },
     {
       "id": "2013PI022726",
@@ -2262,19 +2275,6 @@
       "type_raw": "AUTOMOBILE ACCIDENT (PI)"
     },
     {
-      "id": "2011PI031264",
-      "fy": 2018,
-      "borough": "BROOKLYN (KINGS)",
-      "occurred": "2011-08-08",
-      "filed": "2011-09-08",
-      "disposed": "2017-07-27",
-      "amount": 6000000,
-      "agency": "DSNY — Department of Sanitation",
-      "agency_raw": "Department of Sanitation",
-      "type": "Motor vehicle",
-      "type_raw": "Motor Vehicle"
-    },
-    {
       "id": "2015PI018624",
       "fy": 2017,
       "borough": "BROOKLYN (KINGS)",
@@ -2288,17 +2288,30 @@
       "type_raw": "CIVIL RIGHTS CLAIMS"
     },
     {
-      "id": "2012PI021290",
-      "fy": 2016,
-      "borough": "BRONX",
-      "occurred": "2012-02-03",
-      "filed": "2012-08-17",
-      "disposed": "2016-03-10",
+      "id": "2017PI030252",
+      "fy": 2019,
+      "borough": "BROOKLYN (KINGS)",
+      "occurred": "2011-12-04",
+      "filed": "2012-02-23",
+      "disposed": "2019-01-15",
       "amount": 6000000,
+      "agency": "DOT — Department of Transportation",
+      "agency_raw": "Department of Transportation",
+      "type": "Medical malpractice",
+      "type_raw": "MEDICAL MALPRACTICE (PI)"
+    },
+    {
+      "id": "2014PI030575",
+      "fy": 2016,
+      "borough": "STATEN ISLAND (RICHMOND)",
+      "occurred": "2014-07-17",
+      "filed": "2014-10-06",
+      "disposed": "2015-07-13",
+      "amount": 5900000,
       "agency": "NYPD — New York City Police Department",
       "agency_raw": "POLICE DEPARTMENT",
-      "type": "Civil rights",
-      "type_raw": "CIVIL RIGHTS CLAIMS"
+      "type": "Police action",
+      "type_raw": "PEACE OFFICER/POLICE ACTION (PI)"
     },
     {
       "id": "2019PI027463",
@@ -2327,19 +2340,6 @@
       "type_raw": "Civil Rights"
     },
     {
-      "id": "2014PI030575",
-      "fy": 2016,
-      "borough": "STATEN ISLAND (RICHMOND)",
-      "occurred": "2014-07-17",
-      "filed": "2014-10-06",
-      "disposed": "2015-07-13",
-      "amount": 5900000,
-      "agency": "NYPD — New York City Police Department",
-      "agency_raw": "POLICE DEPARTMENT",
-      "type": "Police action",
-      "type_raw": "PEACE OFFICER/POLICE ACTION (PI)"
-    },
-    {
       "id": "2010PI011713",
       "fy": 2020,
       "borough": "BROOKLYN (KINGS)",
@@ -2364,6 +2364,19 @@
       "agency_raw": "HEALTH AND HOSPITALS CORP.(HHC)",
       "type": "Medical malpractice",
       "type_raw": "MEDICAL MALPRACTICE (PI)"
+    },
+    {
+      "id": "2015PI001615",
+      "fy": 2017,
+      "borough": "BRONX",
+      "occurred": "2013-09-20",
+      "filed": "2014-12-09",
+      "disposed": "2016-08-29",
+      "amount": 5750000,
+      "agency": "Dept. OF Correction",
+      "agency_raw": "DEPT. OF CORRECTION",
+      "type": "Civil rights",
+      "type_raw": "CIVIL RIGHTS CLAIMS"
     },
     {
       "id": "2015PI035586",
@@ -2392,17 +2405,17 @@
       "type_raw": "CIVIL RIGHTS CLAIMS"
     },
     {
-      "id": "2015PI001615",
-      "fy": 2017,
-      "borough": "BRONX",
-      "occurred": "2013-09-20",
-      "filed": "2014-12-09",
-      "disposed": "2016-08-29",
-      "amount": 5750000,
-      "agency": "Dept. OF Correction",
-      "agency_raw": "DEPT. OF CORRECTION",
+      "id": "2012PI000401",
+      "fy": 2020,
+      "borough": "MANHATTAN (NEW YORK)",
+      "occurred": "2011-09-06",
+      "filed": "2011-12-23",
+      "disposed": "2019-10-10",
+      "amount": 5500000,
+      "agency": "NYPD — New York City Police Department",
+      "agency_raw": "Police Department",
       "type": "Civil rights",
-      "type_raw": "CIVIL RIGHTS CLAIMS"
+      "type_raw": "Civil Rights"
     },
     {
       "id": "2017PI022587",
@@ -2416,19 +2429,6 @@
       "agency_raw": "Police Department",
       "type": "Uniformed Services Employee",
       "type_raw": "Uniformed Services Employee"
-    },
-    {
-      "id": "2012PI000401",
-      "fy": 2020,
-      "borough": "MANHATTAN (NEW YORK)",
-      "occurred": "2011-09-06",
-      "filed": "2011-12-23",
-      "disposed": "2019-10-10",
-      "amount": 5500000,
-      "agency": "NYPD — New York City Police Department",
-      "agency_raw": "Police Department",
-      "type": "Civil rights",
-      "type_raw": "Civil Rights"
     },
     {
       "id": "2016PI003188",
@@ -2496,43 +2496,17 @@
       "type_raw": "Civil Rights"
     },
     {
-      "id": "2014PI019061",
-      "fy": 2022,
+      "id": "2011PI018841",
+      "fy": 2016,
       "borough": "MANHATTAN (NEW YORK)",
-      "occurred": "2014-04-27",
-      "filed": "2014-06-05",
-      "disposed": "2021-12-03",
+      "occurred": "2011-03-12",
+      "filed": "2011-04-21",
+      "disposed": "2016-03-10",
       "amount": 5000000,
-      "agency": "Department of Parks & Recration",
-      "agency_raw": "Department of Parks & Recration",
-      "type": "Roadway / pothole",
-      "type_raw": "Roadway"
-    },
-    {
-      "id": "2018PI024055",
-      "fy": 2021,
-      "borough": "BROOKLYN (KINGS)",
-      "occurred": "2018-06-30",
-      "filed": "2018-08-15",
-      "disposed": "2021-01-08",
-      "amount": 5000000,
-      "agency": "Department of Parks & Recration",
-      "agency_raw": "Department of Parks & Recration",
-      "type": "Roadway / pothole",
-      "type_raw": "Roadway"
-    },
-    {
-      "id": "2015PI007260",
-      "fy": 2021,
-      "borough": "BROOKLYN (KINGS)",
-      "occurred": "2014-07-17",
-      "filed": "2015-03-12",
-      "disposed": "2020-12-22",
-      "amount": 5000000,
-      "agency": "DSNY — Department of Sanitation",
-      "agency_raw": "Department of Sanitation",
-      "type": "Uniformed Services Employee",
-      "type_raw": "Uniformed Services Employee"
+      "agency": "HPD — Housing Preservation & Development",
+      "agency_raw": "HOUSING PRESERVATION AND DEVELOPMENT",
+      "type": "Building And Property",
+      "type_raw": "BUILDING AND PROPERTY (PI)"
     },
     {
       "id": "2011PI028092",
@@ -2548,17 +2522,17 @@
       "type_raw": "CIVIL RIGHTS CLAIMS"
     },
     {
-      "id": "2015PI006228",
-      "fy": 2018,
-      "borough": "MANHATTAN (NEW YORK)",
-      "occurred": "2014-12-31",
-      "filed": "2015-03-02",
-      "disposed": "2018-05-03",
+      "id": "2011PI029339",
+      "fy": 2016,
+      "borough": "BRONX",
+      "occurred": "2011-06-03",
+      "filed": "2011-08-18",
+      "disposed": "2016-06-29",
       "amount": 5000000,
-      "agency": "DSNY — Department of Sanitation",
-      "agency_raw": "Department of Sanitation",
-      "type": "Uniformed Services Employee",
-      "type_raw": "Uniformed Services Employee"
+      "agency": "NYPD — New York City Police Department",
+      "agency_raw": "POLICE DEPARTMENT",
+      "type": "Motor vehicle",
+      "type_raw": "AUTOMOBILE ACCIDENT (PI)"
     },
     {
       "id": "2013PI009320",
@@ -2574,30 +2548,56 @@
       "type_raw": "AUTOMOBILE ACCIDENT (PI)"
     },
     {
-      "id": "2011PI029339",
-      "fy": 2016,
-      "borough": "BRONX",
-      "occurred": "2011-06-03",
-      "filed": "2011-08-18",
-      "disposed": "2016-06-29",
+      "id": "2014PI019061",
+      "fy": 2022,
+      "borough": "MANHATTAN (NEW YORK)",
+      "occurred": "2014-04-27",
+      "filed": "2014-06-05",
+      "disposed": "2021-12-03",
       "amount": 5000000,
-      "agency": "NYPD — New York City Police Department",
-      "agency_raw": "POLICE DEPARTMENT",
-      "type": "Motor vehicle",
-      "type_raw": "AUTOMOBILE ACCIDENT (PI)"
+      "agency": "Department of Parks & Recration",
+      "agency_raw": "Department of Parks & Recration",
+      "type": "Roadway / pothole",
+      "type_raw": "Roadway"
     },
     {
-      "id": "2011PI018841",
-      "fy": 2016,
+      "id": "2015PI006228",
+      "fy": 2018,
       "borough": "MANHATTAN (NEW YORK)",
-      "occurred": "2011-03-12",
-      "filed": "2011-04-21",
-      "disposed": "2016-03-10",
+      "occurred": "2014-12-31",
+      "filed": "2015-03-02",
+      "disposed": "2018-05-03",
       "amount": 5000000,
-      "agency": "HPD — Housing Preservation & Development",
-      "agency_raw": "HOUSING PRESERVATION AND DEVELOPMENT",
-      "type": "Building And Property",
-      "type_raw": "BUILDING AND PROPERTY (PI)"
+      "agency": "DSNY — Department of Sanitation",
+      "agency_raw": "Department of Sanitation",
+      "type": "Uniformed Services Employee",
+      "type_raw": "Uniformed Services Employee"
+    },
+    {
+      "id": "2015PI007260",
+      "fy": 2021,
+      "borough": "BROOKLYN (KINGS)",
+      "occurred": "2014-07-17",
+      "filed": "2015-03-12",
+      "disposed": "2020-12-22",
+      "amount": 5000000,
+      "agency": "DSNY — Department of Sanitation",
+      "agency_raw": "Department of Sanitation",
+      "type": "Uniformed Services Employee",
+      "type_raw": "Uniformed Services Employee"
+    },
+    {
+      "id": "2018PI024055",
+      "fy": 2021,
+      "borough": "BROOKLYN (KINGS)",
+      "occurred": "2018-06-30",
+      "filed": "2018-08-15",
+      "disposed": "2021-01-08",
+      "amount": 5000000,
+      "agency": "Department of Parks & Recration",
+      "agency_raw": "Department of Parks & Recration",
+      "type": "Roadway / pothole",
+      "type_raw": "Roadway"
     },
     {
       "id": "2018PI002182",
@@ -2655,314 +2655,325 @@
   "budget": [
     {
       "fy": 2017,
-      "adopted": 1421524644,
-      "modified": 1383095798,
+      "publication_date": "20160615",
+      "adopted": 710762322,
+      "modified": 674176326,
       "by_agency": {
-        "DEPARTMENT OF EDUCATION": {
-          "adopted": 196206,
-          "modified": 23592480
-        },
-        "OFFICE OF THE COMPTROLLER": {
-          "adopted": 1550000,
-          "modified": 946000
-        },
         "CITY UNIVERSITY OF NEW YORK": {
           "adopted": 0,
-          "modified": 18530
-        },
-        "MISCELLANEOUS": {
-          "adopted": 1419778438,
-          "modified": 1349778438
+          "modified": 9265
         },
         "DEPARTMENT OF CITYWIDE ADMIN SERVICE": {
           "adopted": 0,
-          "modified": 8760350
+          "modified": 4380175
+        },
+        "DEPARTMENT OF EDUCATION": {
+          "adopted": 98103,
+          "modified": 14424667
+        },
+        "MISCELLANEOUS": {
+          "adopted": 709889219,
+          "modified": 654889219
+        },
+        "OFFICE OF THE COMPTROLLER": {
+          "adopted": 775000,
+          "modified": 473000
         }
       }
     },
     {
       "fy": 2018,
-      "adopted": 2049334356,
-      "modified": 2132158237,
+      "publication_date": "20170606",
+      "adopted": 683111452,
+      "modified": 763741020,
       "by_agency": {
-        "MISCELLANEOUS": {
-          "adopted": 2029167657,
-          "modified": 2109167657
-        },
-        "DEPARTMENT OF EDUCATION": {
-          "adopted": 17841699,
-          "modified": 17841699
-        },
-        "OFFICE OF THE COMPTROLLER": {
-          "adopted": 2325000,
-          "modified": 965000
-        },
-        "POLICE DEPARTMENT": {
-          "adopted": 0,
-          "modified": 756
-        },
         "DEPARTMENT OF CITYWIDE ADMIN SERVICE": {
           "adopted": 0,
-          "modified": 4154979
+          "modified": 1384993
+        },
+        "DEPARTMENT OF EDUCATION": {
+          "adopted": 5947233,
+          "modified": 5947233
         },
         "DEPARTMENT OF HOMELESS SERVICES": {
           "adopted": 0,
-          "modified": 7000
+          "modified": 3500
+        },
+        "FIRE DEPARTMENT": {
+          "adopted": 0,
+          "modified": 10323
+        },
+        "MISCELLANEOUS": {
+          "adopted": 676389219,
+          "modified": 756389219
         },
         "NYC TAXI AND LIMOUSINE COMM": {
           "adopted": 0,
           "modified": 500
         },
-        "FIRE DEPARTMENT": {
+        "OFFICE OF THE COMPTROLLER": {
+          "adopted": 775000,
+          "modified": 5000
+        },
+        "POLICE DEPARTMENT": {
           "adopted": 0,
-          "modified": 20646
+          "modified": 252
         }
       }
     },
     {
       "fy": 2019,
-      "adopted": 2095258131,
-      "modified": 2114695205,
+      "publication_date": "20180614",
+      "adopted": 698419377,
+      "modified": 718127735,
       "by_agency": {
-        "MISCELLANEOUS": {
-          "adopted": 2074767657,
-          "modified": 2094767657
-        },
-        "OFFICE OF THE COMPTROLLER": {
-          "adopted": 1755000,
-          "modified": 880000
-        },
         "CITY UNIVERSITY OF NEW YORK": {
           "adopted": 0,
-          "modified": 210713
-        },
-        "FIRE DEPARTMENT": {
-          "adopted": 0,
-          "modified": 50370
+          "modified": 199571
         },
         "DEPARTMENT OF EDUCATION": {
-          "adopted": 18735474,
-          "modified": 18735474
+          "adopted": 6245158,
+          "modified": 6245158
         },
         "DEPARTMENT OF HOMELESS SERVICES": {
           "adopted": 0,
-          "modified": 1950
+          "modified": 650
         },
         "DEPARTMENT OF TRANSPORTATION": {
           "adopted": 0,
-          "modified": 49041
+          "modified": 16347
+        },
+        "FIRE DEPARTMENT": {
+          "adopted": 0,
+          "modified": 16790
+        },
+        "MISCELLANEOUS": {
+          "adopted": 691589219,
+          "modified": 711589219
+        },
+        "OFFICE OF THE COMPTROLLER": {
+          "adopted": 585000,
+          "modified": 60000
         }
       }
     },
     {
       "fy": 2020,
-      "adopted": 2093016966,
-      "modified": 2092060535,
+      "publication_date": "20190619",
+      "adopted": 697672322,
+      "modified": 697276607,
       "by_agency": {
-        "FIRE DEPARTMENT": {
-          "adopted": 0,
-          "modified": 5400
-        },
-        "DEPARTMENT OF EDUCATION": {
-          "adopted": 294309,
-          "modified": 294309
-        },
         "DEPARTMENT OF CITYWIDE ADMIN SERVICE": {
           "adopted": 0,
           "modified": 159143
         },
-        "OFFICE OF THE COMPTROLLER": {
-          "adopted": 1755000,
-          "modified": 634026
+        "DEPARTMENT OF EDUCATION": {
+          "adopted": 98103,
+          "modified": 98103
+        },
+        "FIRE DEPARTMENT": {
+          "adopted": 0,
+          "modified": 1800
         },
         "MISCELLANEOUS": {
-          "adopted": 2090967657,
-          "modified": 2090967657
+          "adopted": 696989219,
+          "modified": 696989219
+        },
+        "OFFICE OF THE COMPTROLLER": {
+          "adopted": 585000,
+          "modified": 28342
         }
       }
     },
     {
       "fy": 2021,
-      "adopted": 2137716966,
-      "modified": 2180173122,
+      "publication_date": "20200630",
+      "adopted": 712572322,
+      "modified": 733835213,
       "by_agency": {
-        "MISCELLANEOUS": {
-          "adopted": 2135667657,
-          "modified": 2176931657
+        "DEPARTMENT OF CITYWIDE ADMIN SERVICE": {
+          "adopted": 0,
+          "modified": 414012
+        },
+        "DEPARTMENT OF EDUCATION": {
+          "adopted": 98103,
+          "modified": 448103
         },
         "DEPARTMENT OF HEALTH AND MENTAL HYGIENE": {
           "adopted": 0,
           "modified": 479
         },
+        "MISCELLANEOUS": {
+          "adopted": 711889219,
+          "modified": 732521219
+        },
         "OFFICE OF THE COMPTROLLER": {
-          "adopted": 1755000,
-          "modified": 1487800
-        },
-        "DEPARTMENT OF EDUCATION": {
-          "adopted": 294309,
-          "modified": 644309
-        },
-        "DEPARTMENT OF CITYWIDE ADMIN SERVICE": {
-          "adopted": 0,
-          "modified": 1108877
+          "adopted": 585000,
+          "modified": 451400
         }
       }
     },
     {
       "fy": 2022,
-      "adopted": 2183316966,
-      "modified": 2036598706,
+      "publication_date": "20210630",
+      "adopted": 727772322,
+      "modified": 582197902,
       "by_agency": {
         "DEPARTMENT OF EDUCATION": {
-          "adopted": 294309,
-          "modified": 294309
+          "adopted": 98103,
+          "modified": 98103
         },
         "DEPARTMENT OF HEALTH AND MENTAL HYGIENE": {
           "adopted": 0,
-          "modified": 31740
+          "modified": 10580
         },
         "MISCELLANEOUS": {
-          "adopted": 2181267657,
-          "modified": 2036267657
+          "adopted": 727089219,
+          "modified": 582089219
         },
         "OFFICE OF THE COMPTROLLER": {
-          "adopted": 1755000,
-          "modified": 5000
+          "adopted": 585000,
+          "modified": 0
         }
       }
     },
     {
       "fy": 2023,
-      "adopted": 4013916966,
-      "modified": 3984773875,
+      "publication_date": "20220614",
+      "adopted": 1337972322,
+      "modified": 1302045625,
       "by_agency": {
-        "OFFICE OF THE COMPTROLLER": {
-          "adopted": 1755000,
-          "modified": 395279
-        },
         "ADMIN FOR CHILDREN'S SERVICES": {
           "adopted": 0,
-          "modified": 14916000
-        },
-        "POLICE DEPARTMENT": {
-          "adopted": 0,
-          "modified": 300000
-        },
-        "MISCELLANEOUS": {
-          "adopted": 4011867657,
-          "modified": 3968867657
-        },
-        "DEPARTMENT OF EDUCATION": {
-          "adopted": 294309,
-          "modified": 294309
+          "modified": 7458000
         },
         "CITY UNIVERSITY OF NEW YORK": {
           "adopted": 0,
-          "modified": 630
+          "modified": 210
+        },
+        "DEPARTMENT OF EDUCATION": {
+          "adopted": 98103,
+          "modified": 98103
+        },
+        "MISCELLANEOUS": {
+          "adopted": 1337289219,
+          "modified": 1294289219
+        },
+        "OFFICE OF THE COMPTROLLER": {
+          "adopted": 585000,
+          "modified": 100093
+        },
+        "POLICE DEPARTMENT": {
+          "adopted": 0,
+          "modified": 100000
         }
       }
     },
     {
       "fy": 2024,
-      "adopted": 3599616966,
-      "modified": 3634188653,
+      "publication_date": "20230630",
+      "adopted": 1199872322,
+      "modified": 1211310593,
       "by_agency": {
-        "MISCELLANEOUS": {
-          "adopted": 3597567657,
-          "modified": 3597567657
+        "ADMIN FOR CHILDREN'S SERVICES": {
+          "adopted": 0,
+          "modified": 11912723
+        },
+        "DEPARTMENT OF EDUCATION": {
+          "adopted": 98103,
+          "modified": 98103
         },
         "DEPARTMENT OF TRANSPORTATION": {
           "adopted": 0,
-          "modified": 3000
+          "modified": 1000
+        },
+        "MISCELLANEOUS": {
+          "adopted": 1199189219,
+          "modified": 1199189219
         },
         "OFFICE OF THE COMPTROLLER": {
-          "adopted": 1755000,
-          "modified": 585518
-        },
-        "DEPARTMENT OF EDUCATION": {
-          "adopted": 294309,
-          "modified": 294309
-        },
-        "ADMIN FOR CHILDREN'S SERVICES": {
-          "adopted": 0,
-          "modified": 35738169
+          "adopted": 585000,
+          "modified": 109548
         }
       }
     },
     {
       "fy": 2025,
-      "adopted": 3495816966,
-      "modified": 3629464406,
+      "publication_date": "20240630",
+      "adopted": 1165272322,
+      "modified": 1314730276,
       "by_agency": {
         "DEPARTMENT OF EDUCATION": {
-          "adopted": 294309,
-          "modified": 294309
-        },
-        "OFFICE OF THE COMPTROLLER": {
-          "adopted": 1755000,
-          "modified": 120744
-        },
-        "MISCELLANEOUS": {
-          "adopted": 3493767657,
-          "modified": 3628761235
+          "adopted": 98103,
+          "modified": 98103
         },
         "DEPARTMENT OF TRANSPORTATION": {
           "adopted": 0,
-          "modified": 288118
+          "modified": 2706
+        },
+        "MISCELLANEOUS": {
+          "adopted": 1164589219,
+          "modified": 1314589219
+        },
+        "OFFICE OF THE COMPTROLLER": {
+          "adopted": 585000,
+          "modified": 40248
         }
       }
     },
     {
       "fy": 2026,
-      "adopted": 2633616966,
-      "modified": 2876377565,
+      "publication_date": "20250630",
+      "adopted": 877872322,
+      "modified": 1109064605,
       "by_agency": {
         "DEPARTMENT OF EDUCATION": {
-          "adopted": 294309,
-          "modified": 5806290
+          "adopted": 98103,
+          "modified": 1935430
         },
         "DEPARTMENT OF HEALTH AND MENTAL HYGIENE": {
           "adopted": 0,
-          "modified": 2500
+          "modified": 1250
         },
         "FIRE DEPARTMENT": {
           "adopted": 0,
-          "modified": 34807500
+          "modified": 25807500
         },
         "MISCELLANEOUS": {
-          "adopted": 2631567657,
-          "modified": 2835667657
+          "adopted": 877189219,
+          "modified": 1081289219
         },
         "OFFICE OF THE COMPTROLLER": {
-          "adopted": 1755000,
-          "modified": 93618
+          "adopted": 585000,
+          "modified": 31206
         }
       }
     },
     {
       "fy": 2027,
-      "adopted": 2476585353,
-      "modified": 3367382202,
+      "publication_date": "20260630",
+      "adopted": 825528451,
+      "modified": 1270287998,
       "by_agency": {
-        "DEPARTMENT OF EDUCATION": {
-          "adopted": 5806290,
-          "modified": 11235874
-        },
-        "MISCELLANEOUS": {
-          "adopted": 2469567657,
-          "modified": 3355567657
-        },
-        "OFFICE OF THE COMPTROLLER": {
-          "adopted": 1211406,
-          "modified": 504171
-        },
         "CITY COUNCIL": {
           "adopted": 0,
-          "modified": 34000
+          "modified": 17000
+        },
+        "DEPARTMENT OF EDUCATION": {
+          "adopted": 1935430,
+          "modified": 3900222
+        },
+        "MISCELLANEOUS": {
+          "adopted": 823189219,
+          "modified": 1266189219
+        },
+        "OFFICE OF THE COMPTROLLER": {
+          "adopted": 403802,
+          "modified": 168057
         },
         "POLICE DEPARTMENT": {
           "adopted": 0,
-          "modified": 40500
+          "modified": 13500
         }
       }
     }

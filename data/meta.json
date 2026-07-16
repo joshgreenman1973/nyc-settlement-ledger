@@ -11,7 +11,7 @@
       "description": "OMB — budgeted judgements & claims"
     }
   ],
-  "fetched_at": "2026-07-15T13:06:31.848Z",
+  "fetched_at": "2026-07-16T13:53:36.732Z",
   "row_count": 63918,
   "actual_fy_range": [
     2016,
@@ -22,5 +22,5 @@
     2027
   ],
   "total_settled_usd": 4997471954.629997,
-  "total_budgeted_usd": 29430968304
+  "total_budgeted_usd": 10376793900
 }

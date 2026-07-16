@@ -23,6 +23,13 @@ To check for newer data, re-run `fetch.mjs`. If new fiscal-year data has been pu
 - **Normalization:** The raw data uses inconsistent capitalization and abbreviation for agency names ("Police Department" and "POLICE DEPARTMENT" appear as separate values). `fetch.mjs` collapses these into canonical names. The same is done for claim types. Original values are preserved in `agency_raw` and `type_raw` fields.
 - **"Settled" is not liability:** A settlement is the city paying to resolve a claim. It is not an admission of liability by any party.
 
+### Budget line
+
+- **Source:** NYC Open Data dataset `mwzb-yiwb` (OMB Expense Budget), filtered to `object_code_name = 'JUDGEMENTS AND CLAIMS'`. This extends the chart into fiscal years the Comptroller has not yet reported actuals for.
+- **One snapshot per fiscal year:** OMB republishes each fiscal year two or three times as it moves from preliminary to executive to adopted, and every snapshot is retained in the dataset as its own set of rows. Aggregating without grouping on `publication_date` therefore sums the snapshots together and overstates each year by 2-3x. `fetch.mjs` keeps only the newest snapshot per fiscal year; the one used is recorded in `publication_date` on each budget entry in `data/summary.json`.
+- **Adopted vs modified:** `adopted` is the budget as originally adopted; `modified` is the current modified budget, which moves during the year. The budget-vs-actual chart uses `modified`, and `total_budgeted_usd` in `meta.json` is the sum of `modified` across fiscal years 2017-2027.
+- **Deterministic output:** Socrata does not guarantee row order, so `fetch.mjs` sorts all object keys and breaks sort ties by name before writing. Re-running with unchanged upstream data produces byte-identical files, which keeps the monthly refresh from committing noise.
+
 ## Running locally
 
 ```bash

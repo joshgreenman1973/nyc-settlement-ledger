@@ -105,6 +105,10 @@ function extract(r) {
   };
 }
 
+// Socrata returns rows in no guaranteed order, so anything keyed by insertion
+// order churns between runs. Sorting keys keeps diffs limited to real changes.
+const sortKeys = o => Object.fromEntries(Object.entries(o).sort((a, b) => a[0] < b[0] ? -1 : 1));
+
 function summarize(rows) {
   const fys = [...new Set(rows.map(r => r.fy).filter(Boolean))].sort();
   const agencies = {};
@@ -129,15 +133,22 @@ function summarize(rows) {
       byFyAgency[r.fy][r.agency].total += r.amount;
     }
   }
-  const sortObj = o => Object.fromEntries(Object.entries(o).sort((a, b) => b[1].total - a[1].total));
+  // Name breaks ties so equal-total entries don't swap places between runs.
+  const sortObj = o => Object.fromEntries(
+    Object.entries(o).sort((a, b) => b[1].total - a[1].total || (a[0] < b[0] ? -1 : 1))
+  );
   return {
     totals: { rows: rows.length, amount: totalAmount, max_amount: maxAmount },
     fiscal_years: fys,
     agencies: sortObj(agencies),
     types: sortObj(types),
     boroughs: sortObj(boroughs),
-    by_fy_agency: byFyAgency,
-    top_100: [...rows].sort((a, b) => b.amount - a.amount).slice(0, 100),
+    by_fy_agency: sortKeys(Object.fromEntries(
+      Object.entries(byFyAgency).map(([fy, a]) => [fy, sortObj(a)])
+    )),
+    top_100: [...rows]
+      .sort((a, b) => b.amount - a.amount || (String(a.id) < String(b.id) ? -1 : 1))
+      .slice(0, 100),
   };
 }
 
@@ -145,15 +156,30 @@ async function fetchBudget() {
   // Pull the "JUDGEMENTS AND CLAIMS" budget line across all fiscal years.
   // This extends the ledger into FY2024-FY2027 (the Comptroller's actual-
   // payout data only covers through FY2023).
-  const url = `${BUDGET_SOURCE}?$select=fiscal_year,agency_name,object_code_name,sum(adopted_budget_amount)+as+adopted,sum(current_modified_budget_amount)+as+modified&$where=object_code_name='JUDGEMENTS AND CLAIMS'&$group=fiscal_year,agency_name,object_code_name&$limit=5000`;
+  //
+  // OMB republishes each fiscal year two or three times as it moves from
+  // preliminary to executive to adopted. Every snapshot is retained as its own
+  // set of rows, so publication_date MUST be in the grouping — without it the
+  // snapshots collapse together and each year's budget is summed 2-3x over.
+  // We keep only the newest snapshot per fiscal year.
+  const url = `${BUDGET_SOURCE}?$select=fiscal_year,publication_date,agency_name,object_code_name,sum(adopted_budget_amount)+as+adopted,sum(current_modified_budget_amount)+as+modified&$where=object_code_name='JUDGEMENTS AND CLAIMS'&$group=fiscal_year,publication_date,agency_name,object_code_name&$limit=5000`;
   const res = await fetch(url);
   if (!res.ok) throw new Error(`Budget API: ${res.status}`);
   const rows = await res.json();
+
+  const latestPub = {}; // fy -> newest publication_date (YYYYMMDD, lexically sortable)
+  for (const r of rows) {
+    const fy = parseInt(r.fiscal_year, 10);
+    const pub = String(r.publication_date || '');
+    if (!fy || !pub) continue;
+    if (!latestPub[fy] || pub > latestPub[fy]) latestPub[fy] = pub;
+  }
+
   const byFy = {};
   for (const r of rows) {
     const fy = parseInt(r.fiscal_year, 10);
-    if (!fy) continue;
-    (byFy[fy] ||= { fy, adopted: 0, modified: 0, by_agency: {} });
+    if (!fy || String(r.publication_date || '') !== latestPub[fy]) continue;
+    (byFy[fy] ||= { fy, publication_date: latestPub[fy], adopted: 0, modified: 0, by_agency: {} });
     byFy[fy].adopted += parseFloat(r.adopted) || 0;
     byFy[fy].modified += parseFloat(r.modified) || 0;
     byFy[fy].by_agency[r.agency_name] = {
@@ -161,6 +187,7 @@ async function fetchBudget() {
       modified: parseFloat(r.modified) || 0,
     };
   }
+  for (const b of Object.values(byFy)) b.by_agency = sortKeys(b.by_agency);
   return Object.values(byFy).sort((a, b) => a.fy - b.fy);
 }
 
