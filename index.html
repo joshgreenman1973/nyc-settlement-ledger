@@ -141,7 +141,7 @@
   /* ==== Agency roll-up ==== */
   .agency-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(360px, 100%), 1fr));
     gap: 2px;
     background: var(--rule);
     border: 1px solid var(--rule);
@@ -294,6 +294,7 @@
   .browse-summary b { color: var(--ink); font-weight: 600; }
   .browse-summary .big { color: var(--accent); font-weight: 600; }
 
+  .browse-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   table.browse {
     width: 100%;
     border-collapse: collapse;
@@ -498,6 +499,7 @@
     Loading full dataset…
   </div>
 
+  <div class="browse-scroll">
   <table class="browse" id="browse-table" style="display:none">
     <thead>
       <tr>
@@ -512,6 +514,7 @@
     </thead>
     <tbody></tbody>
   </table>
+  </div>
   <div class="pagination" id="pagination" style="display:none"></div>
 </section>
 
