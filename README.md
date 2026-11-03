@@ -1,12 +1,12 @@
 # NYC Settlement Ledger
 
-A browsable public archive of every settled claim against the City of New York — every police-misconduct payout, Rikers death case, sidewalk injury, wrongful conviction, and school settlement, with amounts, agencies, and dates.
+A browsable public archive of every settled claim against the City of New York — every police-misconduct payout, Rikers death case, sidewalk injury, wrongful conviction and school settlement, with amounts, agencies and dates.
 
 **Live:** https://joshgreenman1973.github.io/nyc-settlement-ledger/
 
 ## What this is
 
-The NYC Comptroller's office publishes an annual Claims Report. Those reports feed [NYC Open Data dataset `ex6k-ym48`](https://data.cityofnewyork.us/City-Government/Claims-Report-Underlying-Settlements-and-Claims-Fi/ex6k-ym48) ("Claims Report — Underlying Settlements and Claims Filed Data"). This project filters that dataset to **only settled claims with a payout amount greater than zero**, normalizes the agency and claim-type strings, and presents the result as a browsable ledger.
+The New York City Comptroller's office publishes an annual Claims Report. Those reports feed [NYC Open Data dataset `ex6k-ym48`](https://data.cityofnewyork.us/City-Government/Claims-Report-Underlying-Settlements-and-Claims-Fi/ex6k-ym48) ("Claims Report — Underlying Settlements and Claims Filed Data"). This project filters that dataset to **only settled claims with a payout amount greater than zero**, normalizes the agency and claim-type strings, and presents the result as a browsable ledger.
 
 Total payouts in the current dataset: about **$5.0 billion** across fiscal years 2016 through 2023.
 
@@ -19,7 +19,7 @@ To check for newer data, re-run `fetch.mjs`. If new fiscal-year data has been pu
 ## Methodology
 
 - **Source:** NYC Open Data dataset `ex6k-ym48`, published by the Office of the NYC Comptroller.
-- **Filter:** `claim_action = 'SETTLED' AND disposition_amount > 0`. Dismissed, pending, or zero-payout claims are excluded.
+- **Filter:** `claim_action = 'SETTLED' AND disposition_amount > 0`. Dismissed, pending or zero-payout claims are excluded.
 - **Normalization:** The raw data uses inconsistent capitalization and abbreviation for agency names ("Police Department" and "POLICE DEPARTMENT" appear as separate values). `fetch.mjs` collapses these into canonical names. The same is done for claim types. Original values are preserved in `agency_raw` and `type_raw` fields.
 - **"Settled" is not liability:** A settlement is the city paying to resolve a claim. It is not an admission of liability by any party.
 
