@@ -1,0 +1,231 @@
+/* ============================================================
+   HOUSE SYSTEM v5 — black
+   Josh Greenman personal projects. Adopted 2026-09-23, replacing
+   "muted riso" (kept as house-v4-muted-riso.css), which Josh called drab.
+
+   Fonts (add to <head>; Archivo needs the width axis):
+   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+   THE PAGE OPENS THE SAME WAY EVERY TIME, AND THEN IT DOESN'T:
+     1. a quiet top line: source on the left, date range on the right
+     2. h1: the project's name, modest size
+     3. .finding: one plain sentence saying the main thing. Not a slogan.
+     4. .lede: a short paragraph with the counts written into sentences
+     5. the project's own chart, built from its data, before any tabs
+   After that, anything goes: sections can switch ground (.g-paper,
+   .g-ink with --band), and graphics can use as many of the eight inks
+   as the data needs.
+
+   RULES, so this stays itself:
+   - Black ground by default. Paper and colour bands are per-section options.
+   - No letterspaced all-caps labels. Labels are sentence case.
+   - No stat tiles with giant numbers. Counts go into sentences.
+   - No display word plus italic accent word in a colour.
+   - No rounded corners, box shadows, gradients or glass.
+   - No emoji as icons, no pill badges with rounded ends.
+   - No monospace, glow or status-light "console" touches. Black here is
+     a printed-poster black, not a terminal.
+   - Colour carries meaning (category, series, state) and may be generous
+     inside graphics. Text stays white or grey.
+   - The headline is not oversold: h1 is the name, .finding is plain.
+
+   Charts drawn in canvas or SVG must read colours from these tokens, not
+   hard-coded hex, so they survive a ground change. Read them with:
+     const s=getComputedStyle(el), t=n=>s.getPropertyValue('--'+n).trim();
+   On black, overlapping marks use 'screen' blending; on paper, 'multiply'
+   (the --blend token says which).
+   ============================================================ */
+
+:root,.g-black{
+  --bg:#111311; --bg2:#1b1e1b; --fg:#f2f3ef; --fg2:#a2a8a1;
+  --line:#3a3f3a; --line2:#262a26; --grid:rgba(255,255,255,.13); --blend:screen;
+  --cobalt:#5b86ff; --vermilion:#ff6a45; --sun:#ffd23f; --mint:#3fd68f;
+  --rose:#ff6fae; --cyan:#3cc8d8; --orange:#ff9f2e; --lilac:#b79bff;
+  --accent:var(--cobalt);   /* the project's lead ink; override per project */
+}
+.g-paper{
+  --bg:#f4f5f2; --bg2:#e7e9e4; --fg:#121412; --fg2:#5a5f5a;
+  --line:#c3c8c1; --line2:#d8dcd6; --grid:rgba(18,20,18,.11); --blend:multiply;
+  --cobalt:#1f4fd6; --vermilion:#d8401f; --sun:#b98d00; --mint:#13925a;
+  --rose:#d23a7e; --cyan:#0f8a99; --orange:#cc6a00; --lilac:#6c4fd0;
+}
+.g-ink{ /* a full colour band; set --band on the element */
+  --bg:var(--band,#ffd23f); --bg2:rgba(0,0,0,.06); --fg:#121412; --fg2:#3d3a2c;
+  --line:rgba(18,20,18,.35); --line2:rgba(18,20,18,.18); --grid:rgba(18,20,18,.16); --blend:multiply;
+  --cobalt:#1c3fae; --vermilion:#b8321a; --sun:#121412; --mint:#0d6e43;
+  --rose:#a92363; --cyan:#0b6874; --orange:#8f4a00; --lilac:#4f36a8;
+}
+/* Legacy names from v4, mapped so older page code keeps working. */
+:root,.g-black,.g-paper,.g-ink{
+  --paper:var(--bg); --paper2:var(--bg2); --ink:var(--fg); --ink2:var(--fg2);
+  --hair:var(--line); --hair2:var(--line2);
+  --ink1:var(--cobalt); --ink2c:var(--mint); --ink3:var(--accent); --ink4:var(--sun); --ink5:var(--cyan);
+
+  --sans:'Karla',system-ui,-apple-system,sans-serif;
+  --display:'Archivo',system-ui,sans-serif;
+  /* type scale */
+  --t-micro:13px;   /* meta, axis, footnote */
+  --t-small:14px;   /* labels, tabs, captions */
+  --t-body:17px;
+  --t-rec:1.12rem;
+  --t-find:clamp(1.2rem,1.9vw,1.55rem);
+  --t-h1:clamp(1.9rem,3.2vw,2.6rem);
+}
+:root{color-scheme:dark}
+.g-paper,.g-ink{color-scheme:light}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:var(--t-body);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--fg);text-decoration-color:var(--fg2);text-underline-offset:2px}
+a:hover{text-decoration-color:var(--fg)}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--sun);outline-offset:2px}
+.g-black,.g-paper,.g-ink{background:var(--bg);color:var(--fg)}
+
+/* ---------- shell ---------- */
+.sheet{max-width:1400px;margin:0 auto;position:relative}
+.sec{padding:34px clamp(16px,4vw,48px)}
+.strip{
+  padding:14px clamp(16px,4vw,48px) 0;display:flex;justify-content:space-between;gap:6px 16px;flex-wrap:wrap;
+  font-size:var(--t-small);color:var(--fg2);
+}
+.strip a{color:var(--fg2)}
+.strip a:hover{color:var(--fg)}
+
+/* ---------- opening ---------- */
+.head{position:relative;padding:30px clamp(16px,4vw,48px) 6px}
+.hmark{display:none} /* v4 corner marks were made for paper; the opening chart replaces them */
+h1{font-family:var(--display);font-variation-settings:'wdth' 88;font-weight:700;margin:0;
+  font-size:var(--t-h1);line-height:1.05;letter-spacing:-.012em}
+.finding{font-family:var(--display);font-variation-settings:'wdth' 88;font-weight:400;font-size:var(--t-find);
+  line-height:1.3;margin:12px 0 0;max-width:40ch;text-wrap:pretty}
+.sub,.lede{margin:16px 0 0;max-width:62ch;font-size:var(--t-body);line-height:1.55;color:var(--fg2)}
+.sub b,.lede b{color:var(--fg);font-weight:700}
+.src{margin:14px 0 0;font-size:var(--t-small);color:var(--fg2)}
+.src a{color:var(--fg2)}
+
+/* ---------- figures ---------- */
+.fig{padding:26px clamp(16px,4vw,48px) 8px}
+.figcap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 20px;font-size:var(--t-small);color:var(--fg2);margin:0 0 8px}
+.figcap b{color:var(--fg)}
+.key{display:inline-flex;align-items:center;gap:6px;margin-right:12px;white-space:nowrap;font-size:var(--t-small)}
+.key i{width:10px;height:10px;display:inline-block}
+.readout{font-size:15px;min-height:1.6em;margin-top:8px;font-variant-numeric:tabular-nums}
+.readout b{color:var(--sun)}
+canvas{display:block;max-width:100%}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 44px}
+@media(max-width:760px){.split{grid-template-columns:1fr}}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:560px){.pair{grid-template-columns:1fr}}
+h2{font-family:var(--display);font-variation-settings:'wdth' 88;font-weight:700;font-size:1.6rem;line-height:1.12;margin:0 0 6px}
+h3{font-family:var(--display);font-variation-settings:'wdth' 88;font-weight:700;font-size:1.35rem;line-height:1.15;margin:0 0 4px}
+h4{font-size:15px;font-weight:700;margin:0 0 6px}
+.aside{font-size:15px;color:var(--fg2);margin:0 0 16px;max-width:62ch}
+/* heat grid: set background per cell from a ramp between --bg and an ink */
+.heat{display:grid;gap:2px;font-size:var(--t-micro)}
+.heat .h{color:var(--fg2);text-align:center}
+.heat .n{padding-right:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600;align-self:center}
+.heat .c{min-height:14px;display:block}
+/* one square per item */
+.waffle{display:grid;grid-template-columns:repeat(11,1fr);gap:3px;max-width:280px}
+.waffle i{aspect-ratio:1;display:block}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:var(--t-small);margin-top:12px}
+/* keyed list */
+.list .row{display:grid;grid-template-columns:14px minmax(0,1fr) auto;gap:12px;align-items:baseline;padding:9px 0;border-top:1.5px solid var(--fg)}
+.list .row:last-child{border-bottom:1.5px solid var(--fg)}
+.list .sw{width:12px;height:12px;display:block;align-self:center}
+.list .nm{font-family:var(--display);font-variation-settings:'wdth' 80;font-weight:650;font-size:var(--t-rec);line-height:1.15}
+.list .sub{display:block;margin:2px 0 0;font-size:var(--t-small);color:var(--fg2)}
+.list .num{font-family:var(--display);font-variation-settings:'wdth' 80;font-weight:600;font-variant-numeric:tabular-nums;text-align:right}
+
+/* ---------- counts: legacy row, kept quiet. Prefer writing counts into .lede ---------- */
+.capline{padding:10px clamp(16px,4vw,48px) 0;font-size:var(--t-small);color:var(--fg2)}
+.capline b{color:var(--fg);font-weight:700}
+.counts{display:flex;flex-wrap:wrap;gap:4px 28px;padding:8px clamp(16px,4vw,48px) 14px}
+.counts div{display:flex;align-items:baseline;gap:7px}
+.counts b{font-family:var(--display);font-variation-settings:'wdth' 88;font-weight:600;font-size:1.05rem;font-variant-numeric:tabular-nums}
+.counts span{font-size:var(--t-small);color:var(--fg2)}
+
+/* ---------- tabs ---------- */
+.tabs{display:flex;flex-wrap:wrap;gap:0;padding:0 clamp(16px,4vw,48px);border-bottom:1px solid var(--line);margin-top:10px}
+.tabs button{font-size:15px;font-weight:600;background:none;border:0;border-bottom:3px solid transparent;
+  color:var(--fg2);padding:11px 14px 9px;cursor:pointer;margin-bottom:-1px}
+.tabs button:hover{color:var(--fg)}
+.tabs button.on{color:var(--fg);border-bottom-color:var(--accent)}
+
+/* ---------- controls ---------- */
+.controls{display:flex;gap:9px;flex-wrap:wrap;align-items:center;padding:14px clamp(16px,4vw,48px);border-bottom:1px solid var(--line2)}
+input[type=search],input[type=text]{
+  flex:1 1 260px;min-width:0;font-family:var(--sans);font-size:15px;font-weight:500;
+  padding:10px 13px;border:1px solid var(--line);background:var(--bg2);color:var(--fg);border-radius:0;outline:none}
+input[type=search]:focus,input[type=text]:focus{border-color:var(--fg)}
+input::placeholder{color:var(--fg2)}
+select{font-family:var(--sans);font-size:14px;font-weight:600;padding:10px 9px;border:1px solid var(--line);
+  background:var(--bg2);color:var(--fg);border-radius:0}
+.chip{font-size:var(--t-small);font-weight:600;padding:7px 11px;border:1px solid var(--line);background:transparent;
+  color:var(--fg2);cursor:pointer;border-radius:0}
+.chip:hover{border-color:var(--fg);color:var(--fg)}
+.chip[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+
+/* ---------- panels and columns ---------- */
+.cols{display:grid;grid-template-columns:1.08fr 1fr}
+@media(max-width:900px){.cols{grid-template-columns:1fr}}
+.cols>.col{padding:0;min-width:0}
+.cols>.col:first-child{border-right:1px solid var(--line2)}
+@media(max-width:900px){.cols>.col:first-child{border-right:0}}
+.colhead{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:12px clamp(16px,4vw,48px) 8px;font-size:var(--t-small);font-weight:600;color:var(--fg2);border-bottom:1px solid var(--line2)}
+.pad{padding:16px clamp(16px,4vw,48px) 26px}
+
+/* ---------- records ---------- */
+.rec{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line2);
+  padding:11px clamp(16px,4vw,48px);cursor:pointer;font-family:inherit;color:inherit}
+.rec:hover{background:var(--bg2)}
+.rec.sel{background:var(--bg2);box-shadow:inset 4px 0 0 var(--accent)}
+.rec b{font-family:var(--display);font-variation-settings:'wdth' 88;font-weight:600;font-size:var(--t-rec);display:block;line-height:1.25}
+.rec .meta{font-style:normal;font-size:var(--t-small);color:var(--fg2);display:block;margin-top:3px}
+.pill{display:inline-block;padding:0 6px;margin-right:7px;color:#111311;background:var(--mint);font-weight:700}
+.pill.c{background:var(--cobalt)}
+.pill.o{background:var(--accent)}
+
+/* ---------- bars ---------- */
+.brow{display:flex;align-items:center;gap:11px;padding:6px 0}
+.brow span{width:110px;font-size:.94rem;font-weight:600;flex:none}
+.brow i{height:12px;display:block;background:var(--accent)}
+.brow u{text-decoration:none;font-family:var(--display);font-weight:600;margin-left:auto;font-variant-numeric:tabular-nums;font-size:.94rem}
+
+/* ---------- tables ---------- */
+table.h{width:100%;border-collapse:collapse;font-size:.94rem}
+table.h th{font-size:var(--t-small);font-weight:700;color:var(--fg2);text-align:left;padding:7px 10px 7px 0;border-bottom:1.5px solid var(--fg)}
+table.h td{padding:7px 10px 7px 0;border-bottom:1px solid var(--line2)}
+table.h td.n,table.h th.n{text-align:right;font-variant-numeric:tabular-nums}
+
+/* ---------- drawer for a single record ---------- */
+.drawer{position:fixed;inset:0;z-index:900;display:none}
+.drawer.open{display:block}
+.drawer .scrim{position:absolute;inset:0;background:rgba(0,0,0,.6)}
+.drawer .panel{position:absolute;top:0;right:0;height:100%;width:min(720px,100%);background:var(--bg);border-left:1px solid var(--line);overflow:auto}
+.drawer .dhead{position:sticky;top:0;background:var(--bg2);border-bottom:1px solid var(--line);
+  padding:14px 22px;display:flex;justify-content:space-between;gap:14px;align-items:flex-start;z-index:2}
+.drawer .dhead .lbl{font-size:var(--t-small);color:var(--fg2)}
+.drawer .dhead h2{margin:3px 0 0;font-size:1.4rem;line-height:1.16}
+.xbtn{font-size:19px;line-height:1;background:none;border:1px solid var(--line);width:32px;height:32px;cursor:pointer;color:var(--fg);flex:none}
+.xbtn:hover{border-color:var(--fg)}
+.dbody{padding:18px 22px 60px}
+dl.f{margin:0 0 18px;border-top:1px solid var(--line2)}
+dl.f>div{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:8px 0;border-bottom:1px solid var(--line2);font-size:.95rem}
+dl.f dt{font-size:var(--t-small);color:var(--fg2);font-weight:600;padding-top:2px}
+dl.f dd{margin:0}
+@media(max-width:560px){dl.f>div{grid-template-columns:1fr;gap:2px}}
+.narr h4{font-size:15px;font-weight:700;margin:22px 0 7px}
+.narr p{margin:0 0 11px;font-size:1rem;line-height:1.62}
+.srcbtn{display:inline-block;font-size:var(--t-small);font-weight:700;border:1px solid var(--fg);padding:9px 13px;
+  text-decoration:none;color:var(--fg);margin-top:8px}
+.srcbtn:hover{background:var(--fg);color:var(--bg)}
+
+/* ---------- footer ---------- */
+.foot{padding:22px clamp(16px,4vw,48px) 44px;border-top:1px solid var(--line2);font-size:.94rem;color:var(--fg2)}
+.foot a{color:var(--fg)}
+.caution{font-size:var(--t-small);color:var(--fg2);border-left:3px solid var(--sun);padding:6px 0 6px 12px;margin:0 0 14px;max-width:80ch;line-height:1.55}
+.empty{padding:36px clamp(16px,4vw,48px);color:var(--fg2);font-size:.95rem}

@@ -1,0 +1,314 @@
+{
+ "source": "NYC Comptroller, Claims Dashboard, Trends Data page (Area filter set to All, then Tort, then Law)",
+ "source_url": "https://comptroller.nyc.gov/services/for-the-public/claims-dashboard/trends-data/",
+ "read_on": "2026-11-18",
+ "note": "Copied by hand from the public dashboard, which has no download. FY2027 is partial: July 1, 2026 to the dashboard refresh on Nov. 18, 2026. Tort plus law matches the total for every year, to within $1 of rounding.",
+ "years": [
+  {
+   "fy": 2010,
+   "partial": false,
+   "filed": 37996,
+   "settled": 13762,
+   "amount": 688288728,
+   "tort": {
+    "filed": 34027,
+    "settled": 10199,
+    "amount": 523233524
+   },
+   "law": {
+    "filed": 3969,
+    "settled": 3563,
+    "amount": 165055203
+   }
+  },
+  {
+   "fy": 2011,
+   "partial": false,
+   "filed": 32841,
+   "settled": 19139,
+   "amount": 696413505,
+   "tort": {
+    "filed": 28902,
+    "settled": 11657,
+    "amount": 554313683
+   },
+   "law": {
+    "filed": 3939,
+    "settled": 7482,
+    "amount": 142099822
+   }
+  },
+  {
+   "fy": 2012,
+   "partial": false,
+   "filed": 30827,
+   "settled": 13801,
+   "amount": 737844406,
+   "tort": {
+    "filed": 25835,
+    "settled": 10521,
+    "amount": 487298629
+   },
+   "law": {
+    "filed": 4992,
+    "settled": 3280,
+    "amount": 250545777
+   }
+  },
+  {
+   "fy": 2013,
+   "partial": false,
+   "filed": 29206,
+   "settled": 13361,
+   "amount": 694075495,
+   "tort": {
+    "filed": 25383,
+    "settled": 9959,
+    "amount": 495154123
+   },
+   "law": {
+    "filed": 3823,
+    "settled": 3402,
+    "amount": 198921372
+   }
+  },
+  {
+   "fy": 2014,
+   "partial": false,
+   "filed": 33405,
+   "settled": 14108,
+   "amount": 838309256,
+   "tort": {
+    "filed": 29028,
+    "settled": 10849,
+    "amount": 568757233
+   },
+   "law": {
+    "filed": 4377,
+    "settled": 3259,
+    "amount": 269552023
+   }
+  },
+  {
+   "fy": 2015,
+   "partial": false,
+   "filed": 33837,
+   "settled": 15922,
+   "amount": 960589418,
+   "tort": {
+    "filed": 27418,
+    "settled": 10329,
+    "amount": 589236701
+   },
+   "law": {
+    "filed": 6419,
+    "settled": 5593,
+    "amount": 371352717
+   }
+  },
+  {
+   "fy": 2016,
+   "partial": false,
+   "filed": 32913,
+   "settled": 14841,
+   "amount": 1021669683,
+   "tort": {
+    "filed": 26929,
+    "settled": 9859,
+    "amount": 640416267
+   },
+   "law": {
+    "filed": 5984,
+    "settled": 4982,
+    "amount": 381253416
+   }
+  },
+  {
+   "fy": 2017,
+   "partial": false,
+   "filed": 31124,
+   "settled": 14371,
+   "amount": 1108335818,
+   "tort": {
+    "filed": 25032,
+    "settled": 9264,
+    "amount": 765016553
+   },
+   "law": {
+    "filed": 6092,
+    "settled": 5107,
+    "amount": 343319265
+   }
+  },
+  {
+   "fy": 2018,
+   "partial": false,
+   "filed": 32267,
+   "settled": 14514,
+   "amount": 1084630101,
+   "tort": {
+    "filed": 25335,
+    "settled": 8884,
+    "amount": 682524333
+   },
+   "law": {
+    "filed": 6932,
+    "settled": 5630,
+    "amount": 402105768
+   }
+  },
+  {
+   "fy": 2019,
+   "partial": false,
+   "filed": 30863,
+   "settled": 14408,
+   "amount": 1031993615,
+   "tort": {
+    "filed": 24423,
+    "settled": 9048,
+    "amount": 668234734
+   },
+   "law": {
+    "filed": 6440,
+    "settled": 5360,
+    "amount": 363758881
+   }
+  },
+  {
+   "fy": 2020,
+   "partial": false,
+   "filed": 28695,
+   "settled": 14348,
+   "amount": 1106135594,
+   "tort": {
+    "filed": 21374,
+    "settled": 8322,
+    "amount": 622739585
+   },
+   "law": {
+    "filed": 7321,
+    "settled": 6026,
+    "amount": 483396009
+   }
+  },
+  {
+   "fy": 2021,
+   "partial": false,
+   "filed": 27152,
+   "settled": 10961,
+   "amount": 976165247,
+   "tort": {
+    "filed": 20151,
+    "settled": 6877,
+    "amount": 599023708
+   },
+   "law": {
+    "filed": 7001,
+    "settled": 4084,
+    "amount": 377141539
+   }
+  },
+  {
+   "fy": 2022,
+   "partial": false,
+   "filed": 32640,
+   "settled": 12533,
+   "amount": 1567379910,
+   "tort": {
+    "filed": 25818,
+    "settled": 7343,
+    "amount": 745305067
+   },
+   "law": {
+    "filed": 6822,
+    "settled": 5190,
+    "amount": 822074843
+   }
+  },
+  {
+   "fy": 2023,
+   "partial": false,
+   "filed": 33206,
+   "settled": 13696,
+   "amount": 1516630696,
+   "tort": {
+    "filed": 24228,
+    "settled": 7198,
+    "amount": 806843832
+   },
+   "law": {
+    "filed": 8978,
+    "settled": 6498,
+    "amount": 709786864
+   }
+  },
+  {
+   "fy": 2024,
+   "partial": false,
+   "filed": 37498,
+   "settled": 13682,
+   "amount": 1987681252,
+   "tort": {
+    "filed": 30126,
+    "settled": 7853,
+    "amount": 1071010706
+   },
+   "law": {
+    "filed": 7372,
+    "settled": 5829,
+    "amount": 916670546
+   }
+  },
+  {
+   "fy": 2025,
+   "partial": false,
+   "filed": 34394,
+   "settled": 14195,
+   "amount": 2041963872,
+   "tort": {
+    "filed": 24961,
+    "settled": 8403,
+    "amount": 983305663
+   },
+   "law": {
+    "filed": 9433,
+    "settled": 5792,
+    "amount": 1058658209
+   }
+  },
+  {
+   "fy": 2026,
+   "partial": false,
+   "filed": 33358,
+   "settled": 13276,
+   "amount": 1802745435,
+   "tort": {
+    "filed": 25745,
+    "settled": 7978,
+    "amount": 944868095
+   },
+   "law": {
+    "filed": 7613,
+    "settled": 5298,
+    "amount": 857877341
+   }
+  },
+  {
+   "fy": 2027,
+   "partial": true,
+   "filed": 11902,
+   "settled": 3239,
+   "amount": 452674392,
+   "tort": {
+    "filed": 9178,
+    "settled": 1814,
+    "amount": 186363102
+   },
+   "law": {
+    "filed": 2724,
+    "settled": 1425,
+    "amount": 266311290
+   }
+  }
+ ]
+}

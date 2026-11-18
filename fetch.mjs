@@ -16,56 +16,95 @@ const DIR = import.meta.dirname;
 const DATA = join(DIR, 'data');
 const DATASET = 'ex6k-ym48';
 const SOURCE = 'https://data.cityofnewyork.us/resource/' + DATASET + '.json';
-const BUDGET_DATASET = 'mwzb-yiwb'; // NYC Expense Budget — includes forward-year judgment & claim budgets
-const BUDGET_SOURCE = 'https://data.cityofnewyork.us/resource/' + BUDGET_DATASET + '.json';
 const PAGE = 50000;
 
-// Canonicalize agency names — Comptroller uses mixed case + abbreviations.
-// These buckets roll duplicates into a single name for rollups.
+// Canonicalize agency names. The Comptroller's file spells the same agency
+// many ways ("Department of Transportation", "Dept OF Transportation",
+// "DOT - Bureau OF Traffic"; "Health & Hospital S Corporation", "Health AND
+// Hospitals Corp.(hhc)"). Normalize first, then match on keywords. Order
+// matters: the first match wins.
 const AGENCY_CANON = [
-  [/^police department$/i, 'NYPD — New York City Police Department'],
-  [/^department of correction$/i, 'DOC — Department of Correction'],
-  [/^department of transportation$/i, 'DOT — Department of Transportation'],
-  [/^department of sanitation$/i, 'DSNY — Department of Sanitation'],
-  [/^department of education$/i, 'DOE — Department of Education'],
-  [/^(nyc )?health \+? ?hospitals$/i, 'H+H — NYC Health + Hospitals'],
-  [/^fire department$/i, 'FDNY — Fire Department'],
-  [/^department of parks( ?& ?recra?eation)?$/i, 'Parks — Department of Parks & Recreation'],
-  [/^department of homeless services$/i, 'DHS — Department of Homeless Services'],
-  [/^housing authority$/i, 'NYCHA — New York City Housing Authority'],
-  [/^department of environmental protection$/i, 'DEP — Department of Environmental Protection'],
-  [/^department of buildings$/i, 'DOB — Department of Buildings'],
-  [/^administration for children.?s services$/i, 'ACS — Administration for Children\'s Services'],
-  [/^human resources administration$/i, 'HRA — Human Resources Administration'],
-  [/^housing preservation.*development$/i, 'HPD — Housing Preservation & Development'],
+  [/\bboard of correction/, 'Board of Correction'],
+  [/\bpolice\b/, 'Police Department'],
+  [/\bcorrection/, 'Department of Correction'],
+  [/transportation|^dot\b|^dot /, 'Department of Transportation'],
+  [/sanitation/, 'Department of Sanitation'],
+  [/\beducation\b/, 'Department of Education'],
+  [/hospital|\bhhc\b/, 'Health + Hospitals'],
+  [/\bfire\b/, 'Fire Department'],
+  [/\bparks\b/, 'Parks Department'],
+  [/environmental protection/, 'Department of Environmental Protection'],
+  [/homeless/, 'Department of Homeless Services'],
+  [/housing authority/, 'Housing Authority (NYCHA)'],
+  [/housing.*preservation/, 'Housing Preservation and Development'],
+  [/\bbuildings\b/, 'Department of Buildings'],
+  [/children/, "Administration for Children's Services"],
+  [/human resources|social services/, 'Human Resources Administration'],
+  [/design and construction/, 'Department of Design and Construction'],
+  [/citywide admin/, 'Citywide Administrative Services'],
+  [/taxi/, 'Taxi and Limousine Commission'],
+  [/juvenile justice/, 'Department of Juvenile Justice'],
+  [/info.*technology/, 'Information Technology and Telecommunications'],
+  [/\bfinance\b/, 'Department of Finance'],
+  [/probation/, 'Department of Probation'],
+  [/investigation/, 'Department of Investigation'],
+  [/chief med/, 'Office of Chief Medical Examiner'],
+  [/mental health|mental hygiene|department of health/, 'Department of Health and Mental Hygiene'],
+  [/emergency management/, 'Emergency Management'],
+  [/dist(rict)?\.? ?att(orne)?y/, 'District attorneys'],
+  [/library/, 'Public libraries'],
+  [/^(other|misc\.?|unknown|null)$/, 'Other or not listed'],
 ];
+function normAgency(s) {
+  return s.toLowerCase()
+    .replace(/\bdept\b\.?/g, 'department')
+    .replace(/&/g, ' and ')
+    .replace(/\brecration\b/g, 'recreation')
+    .replace(/\s+/g, ' ').trim();
+}
 function canonAgency(raw) {
   const s = (raw || 'Unknown').trim();
-  for (const [re, canon] of AGENCY_CANON) if (re.test(s)) return canon;
-  // Title-case fallback for unfamiliar agencies
-  return s.split(/\s+/).map(w => w.length <= 3 ? w : w[0].toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+  const n = normAgency(s);
+  for (const [re, canon] of AGENCY_CANON) if (re.test(n)) return canon;
+  return n.replace(/\b[a-z]/g, (c, i) => i === 0 ? c.toUpperCase() : c);
 }
 
-// Roll fine-grained claim types into broader categories for charts/filters.
+// Roll fine-grained claim types into broader categories. The raw file has
+// three spellings of most types (an all-caps "(PI)" form, an all-caps plain
+// form and a mixed-case form from later years).
 const TYPE_CANON = [
   [/police action|peace officer/i, 'Police action'],
-  [/correction.*facility|correction facility/i, 'Correction (jail/prison)'],
-  [/motor vehicle|automobile accident/i, 'Motor vehicle'],
+  [/correction facility/i, 'Jail (correction facility)'],
+  [/motor vehicle|automobile/i, 'Motor vehicle crash'],
   [/sidewalk/i, 'Sidewalk'],
-  [/roadway|pothole/i, 'Roadway / pothole'],
+  [/roadway|pothole/i, 'Roadway'],
   [/civil rights/i, 'Civil rights'],
   [/medical malpractice|med.?mal/i, 'Medical malpractice'],
-  [/property damage/i, 'Property damage'],
-  [/false arrest|false imprisonment|wrongful/i, 'False arrest / wrongful imprisonment'],
-  [/trip|slip|fall/i, 'Trip / slip / fall'],
-  [/employment|discrimination|labor/i, 'Employment / labor'],
-  [/water main|flood/i, 'Water / flooding'],
-  [/tree/i, 'Tree damage'],
+  [/uniformed serv/i, 'Uniformed service employee'],
+  [/traf.*light|traffic control/i, 'Traffic signal or sign'],
+  [/water ?main/i, 'Water main'],
+  [/sewer/i, 'Sewer overflow'],
+  [/buildings? and property/i, 'Buildings and property'],
+  [/non covered agency/i, 'Non-covered agency'],
+  [/damage by city personnel/i, 'Damage by city personnel'],
+  [/parks/i, 'Parks and recreation'],
+  [/^recreation/i, 'Recreation'],
+  [/health facility/i, 'Health facility'],
+  [/^school/i, 'School'],
 ];
 function canonType(raw) {
   const s = (raw || 'Other').trim();
   for (const [re, canon] of TYPE_CANON) if (re.test(s)) return canon;
-  return s.replace(/\(PI\)\s*$/i, '').trim().replace(/^./, c => c.toUpperCase()).replace(/[A-Z]{3,}/g, w => w[0] + w.slice(1).toLowerCase());
+  const t = s.replace(/\s*\(PI\)\s*$/i, '').trim().toLowerCase();
+  return t.charAt(0).toUpperCase() + t.slice(1);
+}
+
+const BORO = { 'BROOKLYN (KINGS)': 'Brooklyn', 'BRONX': 'Bronx', 'MANHATTAN (NEW YORK)': 'Manhattan',
+  'QUEENS': 'Queens', 'STATEN ISLAND (RICHMOND)': 'Staten Island' };
+function canonBorough(raw) {
+  const s = (raw || '').trim().toUpperCase();
+  if (!s || s === 'NULL' || s === 'UNKNOWN') return null;
+  return BORO[s] || 'Outside the city';
 }
 
 async function fetchPage(offset) {
@@ -93,7 +132,7 @@ function extract(r) {
   return {
     id: r.claim,
     fy: parseInt(r.fiscal_year_fy_, 10) || null,
-    borough: (r.borough || '').trim() || null,
+    borough: canonBorough(r.borough),
     occurred: (r.occurrence_date || '').slice(0, 10) || null,
     filed: (r.filed_date || '').slice(0, 10) || null,
     disposed: (r.disposition_date || '').slice(0, 10) || null,
@@ -138,7 +177,7 @@ function summarize(rows) {
     Object.entries(o).sort((a, b) => b[1].total - a[1].total || (a[0] < b[0] ? -1 : 1))
   );
   return {
-    totals: { rows: rows.length, amount: totalAmount, max_amount: maxAmount },
+    totals: { rows: rows.length, claims: new Set(rows.map(r => r.id)).size, amount: totalAmount, max_amount: maxAmount },
     fiscal_years: fys,
     agencies: sortObj(agencies),
     types: sortObj(types),
@@ -152,62 +191,18 @@ function summarize(rows) {
   };
 }
 
-async function fetchBudget() {
-  // Pull the "JUDGEMENTS AND CLAIMS" budget line across all fiscal years.
-  // This extends the ledger into FY2024-FY2027 (the Comptroller's actual-
-  // payout data only covers through FY2023).
-  //
-  // OMB republishes each fiscal year two or three times as it moves from
-  // preliminary to executive to adopted. Every snapshot is retained as its own
-  // set of rows, so publication_date MUST be in the grouping — without it the
-  // snapshots collapse together and each year's budget is summed 2-3x over.
-  // We keep only the newest snapshot per fiscal year.
-  const url = `${BUDGET_SOURCE}?$select=fiscal_year,publication_date,agency_name,object_code_name,sum(adopted_budget_amount)+as+adopted,sum(current_modified_budget_amount)+as+modified&$where=object_code_name='JUDGEMENTS AND CLAIMS'&$group=fiscal_year,publication_date,agency_name,object_code_name&$limit=5000`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Budget API: ${res.status}`);
-  const rows = await res.json();
-
-  const latestPub = {}; // fy -> newest publication_date (YYYYMMDD, lexically sortable)
-  for (const r of rows) {
-    const fy = parseInt(r.fiscal_year, 10);
-    const pub = String(r.publication_date || '');
-    if (!fy || !pub) continue;
-    if (!latestPub[fy] || pub > latestPub[fy]) latestPub[fy] = pub;
-  }
-
-  const byFy = {};
-  for (const r of rows) {
-    const fy = parseInt(r.fiscal_year, 10);
-    if (!fy || String(r.publication_date || '') !== latestPub[fy]) continue;
-    (byFy[fy] ||= { fy, publication_date: latestPub[fy], adopted: 0, modified: 0, by_agency: {} });
-    byFy[fy].adopted += parseFloat(r.adopted) || 0;
-    byFy[fy].modified += parseFloat(r.modified) || 0;
-    byFy[fy].by_agency[r.agency_name] = {
-      adopted: parseFloat(r.adopted) || 0,
-      modified: parseFloat(r.modified) || 0,
-    };
-  }
-  for (const b of Object.values(byFy)) b.by_agency = sortKeys(b.by_agency);
-  return Object.values(byFy).sort((a, b) => a.fy - b.fy);
-}
-
 async function main() {
   console.log('Fetching settled claims from NYC Open Data…');
   const raw = await fetchAll();
   console.log(`Normalizing ${raw.length.toLocaleString()} records…`);
   const rows = raw.map(extract);
-  console.log('Fetching budget line for "JUDGEMENTS AND CLAIMS"…');
-  const budget = await fetchBudget();
-  console.log(`  ${budget.length} fiscal years of budget data (FY${budget[0]?.fy}-FY${budget[budget.length-1]?.fy})`);
 
   writeFileSync(join(DATA, 'settlements.json'), JSON.stringify(rows));
   const summary = summarize(rows);
-  summary.budget = budget;
   writeFileSync(join(DATA, 'summary.json'), JSON.stringify(summary, null, 2));
   writeFileSync(join(DATA, 'meta.json'), JSON.stringify({
     sources: [
       { id: DATASET, url: `https://data.cityofnewyork.us/d/${DATASET}`, description: 'Comptroller — actual settled claims' },
-      { id: BUDGET_DATASET, url: `https://data.cityofnewyork.us/d/${BUDGET_DATASET}`, description: 'OMB — budgeted judgements & claims' },
     ],
     fetched_at: new Date().toISOString(),
     row_count: rows.length,
@@ -215,9 +210,7 @@ async function main() {
       Math.min(...rows.map(r => r.fy).filter(Boolean)),
       Math.max(...rows.map(r => r.fy).filter(Boolean)),
     ],
-    budget_fy_range: [budget[0]?.fy, budget[budget.length-1]?.fy],
     total_settled_usd: rows.reduce((s, r) => s + r.amount, 0),
-    total_budgeted_usd: budget.reduce((s, b) => s + b.modified, 0),
   }, null, 2));
 
   console.log(`done — wrote ${rows.length.toLocaleString()} settlements.`);
