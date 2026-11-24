@@ -7,7 +7,7 @@
 <meta name="description" content="What New York City pays each year to resolve claims and lawsuits, from the Comptroller's claims dashboard, and every tort settlement payment from fiscal 2016 through 2023.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="house.css">
 <style>
   :root { --accent: var(--vermilion); }
@@ -270,7 +270,7 @@ function drawYears(hover) {
   const iw = w - pad.l - pad.r, ih = h - pad.t - pad.b;
   const bw = iw / ys.length;
   const y = v => pad.t + ih - v / max * ih;
-  ctx.font = `13px Karla, sans-serif`; ctx.textBaseline = 'middle';
+  ctx.font = `13px "Helvetica Neue", Helvetica, Arial, sans-serif`; ctx.textBaseline = 'middle';
   for (let v = 0; v <= max; v += 5e8) {
     ctx.strokeStyle = v === 0 ? t('fg2') : t('grid'); ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(pad.l, Math.round(y(v)) + .5); ctx.lineTo(w - pad.r, Math.round(y(v)) + .5); ctx.stroke();
@@ -382,7 +382,7 @@ function drawField() {
   const LMIN = 0, LMAX = Math.log10(4e7);
   const xs = v => x0 + (Math.log10(Math.max(1, v)) - LMIN) / (LMAX - LMIN) * (x1 - x0);
   // axis grid
-  ctx.font = '13px Karla, sans-serif'; ctx.textBaseline = 'middle';
+  ctx.font = '13px "Helvetica Neue", Helvetica, Arial, sans-serif'; ctx.textBaseline = 'middle';
   const ticks = [[1,'$1'],[10,'$10'],[100,'$100'],[1e3,'$1,000'],[1e4,'$10,000'],[1e5,'$100,000'],[1e6,'$1M'],[1e7,'$10M']];
   ticks.forEach(([v, lab], k) => {
     const x = Math.round(xs(v)) + .5;
@@ -395,18 +395,18 @@ function drawField() {
   rows.forEach((row, ri) => {
     const yTop = top + ri * (rowH + lblH);
     const bandTop = yTop + lblH, mid = bandTop + rowH / 2;
-    ctx.fillStyle = t('fg'); ctx.textAlign = 'left'; ctx.font = '600 14px Karla, sans-serif';
+    ctx.fillStyle = t('fg'); ctx.textAlign = 'left'; ctx.font = '600 14px "Helvetica Neue", Helvetica, Arial, sans-serif';
     if (narrow) {
       const tw = ctx.measureText(money(row.total)).width + 16;
       const nm = ctx.measureText(row.name).width > w - tw ? row.name.replace(/^Department of /, '') : row.name;
       ctx.fillText(nm, 0, yTop + 9);
-      ctx.fillStyle = t('fg2'); ctx.textAlign = 'right'; ctx.font = '13px Karla, sans-serif';
+      ctx.fillStyle = t('fg2'); ctx.textAlign = 'right'; ctx.font = '13px "Helvetica Neue", Helvetica, Arial, sans-serif';
       ctx.fillText(money(row.total), w, yTop + 9);
     } else {
       ctx.fillText(row.name, 0, mid - 7);
-      ctx.fillStyle = t('fg2'); ctx.font = '13px Karla, sans-serif';
+      ctx.fillStyle = t('fg2'); ctx.font = '13px "Helvetica Neue", Helvetica, Arial, sans-serif';
       ctx.fillText(num(row.count) + ' payments', 0, mid + 10);
-      ctx.fillStyle = t('fg'); ctx.textAlign = 'right'; ctx.font = '600 14px Karla, sans-serif';
+      ctx.fillStyle = t('fg'); ctx.textAlign = 'right'; ctx.font = '600 14px "Helvetica Neue", Helvetica, Arial, sans-serif';
       ctx.fillText(money(row.total), w, mid);
     }
     ctx.strokeStyle = t('line2'); ctx.beginPath(); ctx.moveTo(x0, Math.round(bandTop + rowH) + .5); ctx.lineTo(x1, Math.round(bandTop + rowH) + .5); ctx.stroke();
